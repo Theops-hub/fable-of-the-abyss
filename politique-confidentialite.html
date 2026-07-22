@@ -17,40 +17,117 @@
   }
   @media (prefers-color-scheme: dark) {
     body { color: #d9e2ec; background: #10161d; }
-    h1, h2 { color: #7fd8cd; }
+    h1, h2, h3 { color: #7fd8cd; }
+    #suppression { background: #16232c; border-color: #7fd8cd; }
   }
   h1 { font-size: 1.6rem; line-height: 1.3; color: #14545c; }
   h2 { font-size: 1.15rem; margin-top: 2rem; color: #14545c; }
+  h3 { font-size: 1rem; margin: 1.4rem 0 0.4rem; color: #14545c; }
   p { margin: 0.8rem 0; }
+  ul, ol { margin: 0.8rem 0; padding-left: 1.4rem; }
+  li { margin: 0.35rem 0; }
   .date { opacity: 0.7; font-size: 0.9rem; }
+  /* Google exige que la procédure de suppression soit « bien distincte » :
+     la section est donc encadrée et ancrée (#suppression). */
+  #suppression {
+    margin-top: 2.5rem; padding: 0.25rem 1.25rem 1rem;
+    background: #f2f8f7; border: 2px solid #14545c; border-radius: 8px;
+  }
+  #suppression h2 { margin-top: 1.2rem; }
 </style>
 </head>
 <body>
 <h1>Politique de confidentialité<br>« Fable of the Abyss »</h1>
-<p class="date">Dernière mise à jour : 14 juillet 2026</p>
+<p class="date">Dernière mise à jour : 22 juillet 2026</p>
 
 <h2>En résumé</h2>
-<p><strong>Fable of the Abyss ne collecte aucune donnée. Aucune. De personne.</strong></p>
-
-<h2>Données collectées</h2>
-<p>L'application ne collecte, ne stocke, ne transmet et ne partage aucune
-donnée personnelle ni aucune donnée d'usage. Elle fonctionne entièrement
-hors-ligne et ne demande <strong>aucune permission</strong> Android (ni
-Internet, ni stockage, ni localisation, ni aucune autre).</p>
+<p><strong>Le jeu se joue entièrement hors-ligne et ne collecte rien.</strong>
+La seule exception est le « Panthéon », le classement en ligne : il est
+<strong>facultatif</strong>, et rien n'est envoyé tant que vous n'avez pas
+choisi un pseudo.</p>
 
 <h2>Données enregistrées sur votre appareil</h2>
 <p>Vos records de jeu (profondeur maximale, paliers, perles récoltées,
-poissons débloqués) sont enregistrés <em>uniquement sur votre appareil</em>,
-dans le stockage local de l'application. Ces données ne quittent jamais
-votre téléphone et sont supprimées si vous désinstallez l'application.</p>
+poissons débloqués) sont enregistrés <em>uniquement sur votre appareil</em>.
+Ces données ne quittent jamais votre téléphone et sont supprimées si vous
+désinstallez l'application.</p>
+
+<h2>Le Panthéon (classement en ligne, facultatif)</h2>
+<p>Si — et seulement si — vous choisissez un pseudo pour rejoindre le
+Panthéon, les informations suivantes sont transmises à notre serveur :</p>
+<ul>
+  <li>le <strong>pseudo</strong> que vous avez saisi ;</li>
+  <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
+  <li>un <strong>identifiant aléatoire</strong> tiré au hasard lors de votre
+      première participation.</li>
+</ul>
+<p>Cet identifiant n'est <em>pas</em> un identifiant matériel : il ne
+provient ni de votre téléphone, ni d'un compte, et ne permet pas de vous
+suivre dans d'autres applications. Il sert uniquement à ce que vous
+n'occupiez qu'une seule ligne du classement et à pouvoir vous en retirer.</p>
+<p>Aucune autre donnée n'est transmise : ni adresse e-mail, ni contact, ni
+localisation, ni identifiant publicitaire. Les échanges avec le serveur sont
+chiffrés (HTTPS). Le pseudo et le score sont publics par nature, puisqu'ils
+s'affichent dans le classement.</p>
+
+<section id="suppression">
+<h2>Supprimer vos données</h2>
+<p>Cette section concerne l'application <strong>« Fable of the Abyss »</strong>,
+éditée par <strong>KFR Studio</strong>
+(<a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>).</p>
+
+<h3>Comment demander la suppression</h3>
+<p>Deux moyens, au choix :</p>
+<ol>
+  <li><strong>Depuis le jeu, immédiatement</strong> — ouvrez l'écran
+  <em>Panthéon</em>, puis touchez le bouton
+  <strong>« ME RETIRER DU CLASSEMENT »</strong>. Votre entrée est effacée de
+  nos serveurs sur-le-champ, sans confirmation ni délai.</li>
+  <li><strong>Par e-mail</strong> — écrivez à
+  <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a> en
+  précisant votre pseudo. La suppression est effectuée sous 30 jours.</li>
+</ol>
+
+<h3>Données supprimées</h3>
+<p>La suppression efface la <strong>totalité</strong> des données vous
+concernant sur notre serveur :</p>
+<ul>
+  <li>votre <strong>pseudo</strong> ;</li>
+  <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
+  <li>l'<strong>identifiant aléatoire</strong> lié à votre installation ;</li>
+  <li>les éventuelles <strong>sessions de plongée</strong> en cours.</li>
+</ul>
+<p>Aucune donnée vous concernant n'est conservée après cette opération, et
+nous ne gardons aucune copie à d'autres fins.</p>
+
+<h3>Durée de conservation résiduelle</h3>
+<p>Notre hébergeur (Cloudflare D1, Europe de l'Ouest) réalise des sauvegardes
+techniques automatiques permettant de restaurer la base en cas d'incident.
+Ces sauvegardes sont conservées <strong>30 jours au maximum</strong>, puis
+détruites : passé ce délai, il ne subsiste plus aucune trace de vos données.
+Ces sauvegardes ne sont jamais consultées ni exploitées en dehors d'une
+restauration après incident technique.</p>
+
+<h3>Données restant sur votre téléphone</h3>
+<p>Vos records, perles et poissons débloqués sont enregistrés localement sur
+votre appareil et ne nous sont jamais transmis. Ils sont supprimés lorsque
+vous désinstallez l'application ou effacez ses données depuis les réglages
+Android.</p>
+</section>
+
+<h2>Modération</h2>
+<p>Les pseudos sont filtrés automatiquement afin d'écarter les termes
+injurieux ou haineux. Un pseudo inapproprié peut être signalé par e-mail et
+sera supprimé.</p>
 
 <h2>Publicité et suivi</h2>
 <p>L'application ne contient aucune publicité, aucun traqueur, aucun outil
 d'analyse ni aucun service tiers.</p>
 
 <h2>Enfants</h2>
-<p>L'application convient à tous les âges. Comme aucune donnée n'est
-collectée, cela vaut aussi pour les enfants.</p>
+<p>L'application convient à tous les âges. Le jeu lui-même ne collecte
+aucune donnée. Le Panthéon étant public, nous invitons les enfants à ne
+jamais utiliser leur nom réel comme pseudo.</p>
 
 <h2>Contact</h2>
 <p>Pour toute question concernant cette politique :
