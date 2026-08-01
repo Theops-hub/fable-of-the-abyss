@@ -27,6 +27,19 @@
   ul, ol { margin: 0.8rem 0; padding-left: 1.4rem; }
   li { margin: 0.35rem 0; }
   .date { opacity: 0.7; font-size: 0.9rem; }
+  .lang { font-size: 0.9rem; }
+  /* Le tableau des finalités doit rester lisible sur un téléphone : il
+     défile horizontalement dans son propre cadre plutôt que d'élargir la
+     page, et les cellules restent alignées en haut. */
+  table {
+    display: block; overflow-x: auto; width: 100%;
+    border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem;
+  }
+  th, td {
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    padding: 0.5rem 0.7rem; text-align: left; vertical-align: top;
+  }
+  th { background: rgba(128, 128, 128, 0.12); }
   /* Google exige que la procédure de suppression soit « bien distincte » :
      la section est donc encadrée et ancrée (#suppression). */
   #suppression {
@@ -38,37 +51,246 @@
 </head>
 <body>
 <h1>Politique de confidentialité<br>« Fable of the Abyss »</h1>
-<p class="date">Dernière mise à jour : 22 juillet 2026</p>
+<p class="date">Dernière mise à jour : 1er août 2026</p>
+<p class="lang"><a href="privacy-policy.html">English version</a></p>
 
 <h2>En résumé</h2>
-<p><strong>Le jeu se joue entièrement hors-ligne et ne collecte rien.</strong>
-La seule exception est le « Panthéon », le classement en ligne : il est
-<strong>facultatif</strong>, et rien n'est envoyé tant que vous n'avez pas
-choisi un pseudo.</p>
+<p><strong>Jouer demande une connexion, et un pseudo.</strong> C'est notre
+serveur qui atteste chaque plongée : sans lui, ni vos perles ni votre record ne
+pourraient vous être garantis, et le jeu préfère ne pas vous laisser jouer pour
+rien. Ce qui est envoyé se limite à ce qui suit :</p>
+<ul>
+  <li>le <strong>Panthéon</strong>, le classement en ligne — le pseudo que vous
+      choisissez au premier lancement, et la profondeur de vos plongées ;</li>
+  <li>le <strong>déroulé d'une plongée en cours</strong> : à son ouverture, puis
+      toutes les dix secondes environ, le jeu annonce au serveur la profondeur
+      atteinte. C'est ce qui permet de valider un record sans avoir à croire
+      l'appareil sur parole, et c'est aussi ce qui met la partie en pause quand
+      le serveur ne répond plus. Ces relevés sont effacés avec la session ;</li>
+  <li><strong>« Nous écrire »</strong>, le formulaire de contact des réglages —
+      rien n'est envoyé tant que vous n'écrivez pas ;</li>
+  <li>votre <strong>solde de perles</strong>, tenu par le serveur depuis la
+      version 2.5 — c'est ce qui vous rend vos achats après une réinstallation,
+      et ce qui empêche de s'attribuer gratuitement ce qui se vend ;</li>
+  <li>vos <strong>achats</strong> de perles, dont le reçu doit être vérifié
+      auprès de Google pour être crédité.</li>
+</ul>
+<p>Une chose ne passe <em>pas</em> par notre serveur : la <strong>vidéo
+récompensée</strong> que l'application Android peut vous proposer à la mort.
+Elle est servie par Google, avec votre consentement, et la section
+« Publicité récompensée » ci-dessous lui est consacrée.</p>
+
+<h2>Qui est responsable de vos données</h2>
+<p>L'application est éditée par <strong>KFR Studio</strong> (Theo Kiefer),
+responsable du traitement des données décrites ici. Pour toute question ou
+pour exercer vos droits :
+<a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.</p>
 
 <h2>Données enregistrées sur votre appareil</h2>
-<p>Vos records de jeu (profondeur maximale, paliers, perles récoltées,
-poissons débloqués) sont enregistrés <em>uniquement sur votre appareil</em>.
-Ces données ne quittent jamais votre téléphone et sont supprimées si vous
-désinstallez l'application.</p>
+<p>Vos réglages, votre progression (paliers, missions, poissons débloqués) et
+vos records sont enregistrés sur votre appareil, et disparaissent si vous
+désinstallez l'application. La plupart n'en sortent jamais — à deux exceptions
+près, décrites dans cette page : votre <strong>meilleure profondeur</strong>,
+qui figure au Panthéon, et votre <strong>solde de perles</strong>, tenu par le
+serveur.</p>
+<p>Votre <strong>solde de perles</strong> faisait partie de cette liste jusqu'à
+la version 2.5 ; il est désormais tenu par notre serveur (voir plus bas). Votre
+appareil n'en garde qu'une copie d'affichage, pour que l'écran dise vrai sans
+attendre le réseau — c'est le solde du serveur qui fait foi.</p>
+<p>Sur navigateur, elles utilisent le <em>stockage local</em> du site
+(<code>localStorage</code>). L'application <strong>ne dépose aucun cookie</strong>
+et n'utilise aucun traceur : ce stockage sert uniquement à vous rendre votre
+partie au lancement suivant, et rien n'en est lu par un tiers.</p>
 
-<h2>Le Panthéon (classement en ligne, facultatif)</h2>
-<p>Si — et seulement si — vous choisissez un pseudo pour rejoindre le
-Panthéon, les informations suivantes sont transmises à notre serveur :</p>
+<!-- Toute modification ici doit être reportée dans privacy-policy.html. -->
+<h2>Le Panthéon (le classement en ligne)</h2>
+<p>Le pseudo se choisit au <strong>premier lancement</strong> : il fait partie
+de l'entrée dans le jeu. Chaque joueur figure au classement — c'est le même
+mécanisme qui permet au serveur d'attester les plongées, de garder les perles
+en lieu sûr et de rendre sa partie à qui change de téléphone. Sont transmises
+à notre serveur :</p>
 <ul>
   <li>le <strong>pseudo</strong> que vous avez saisi ;</li>
   <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
+  <li>le <strong>poisson</strong> avec lequel ce record a été établi, affiché
+      en vignette à côté de votre pseudo ;</li>
   <li>un <strong>identifiant aléatoire</strong> tiré au hasard lors de votre
-      première participation.</li>
+      première participation, et la <strong>date</strong> de celle-ci ;</li>
+  <li>pendant une plongée, des <strong>points de contrôle</strong> de
+      profondeur, qui permettent de vérifier qu'un record a bien été joué.</li>
 </ul>
 <p>Cet identifiant n'est <em>pas</em> un identifiant matériel : il ne
 provient ni de votre téléphone, ni d'un compte, et ne permet pas de vous
 suivre dans d'autres applications. Il sert uniquement à ce que vous
 n'occupiez qu'une seule ligne du classement et à pouvoir vous en retirer.</p>
-<p>Aucune autre donnée n'est transmise : ni adresse e-mail, ni contact, ni
-localisation, ni identifiant publicitaire. Les échanges avec le serveur sont
-chiffrés (HTTPS). Le pseudo et le score sont publics par nature, puisqu'ils
-s'affichent dans le classement.</p>
+<p>Le pseudo et le score sont publics par nature, puisqu'ils s'affichent dans
+le classement. Les échanges avec le serveur sont chiffrés (HTTPS).</p>
+
+<h2>« Nous écrire » (formulaire de contact, facultatif)</h2>
+<p>L'écran <em>Réglages</em> propose un formulaire pour nous signaler un
+problème ou nous demander une action sur votre entrée du classement. Si vous
+l'utilisez, nous recevons :</p>
+<ul>
+  <li>le <strong>texte de votre message</strong> et le sujet choisi (bug,
+      compte, autre) ;</li>
+  <li>votre <strong>identifiant aléatoire</strong> et le <strong>pseudo</strong>
+      associé, s'il y en a un ;</li>
+  <li>quelques <strong>informations techniques</strong> jointes
+      automatiquement, pour que nous puissions comprendre le problème sans
+      vous les demander : la version du jeu, la plateforme (Android ou
+      navigateur), la langue d'affichage, votre meilleure profondeur et votre
+      réserve de perles.</li>
+</ul>
+<p><strong>N'écrivez rien dans ce message que vous ne souhaitez pas nous
+confier</strong> : son contenu est libre, c'est vous qui le rédigez. Nous ne
+demandons ni votre nom, ni votre adresse e-mail, ni aucune autre coordonnée.
+<em>Nous n'avons donc aucun moyen de vous répondre depuis le jeu</em> : si
+vous attendez une réponse, écrivez-nous plutôt à l'adresse indiquée en bas de
+cette page.</p>
+<p>Les messages sont lus par l'éditeur, ne sont communiqués à personne, et
+sont supprimés une fois la demande traitée — et en tout état de cause si vous
+demandez la suppression de vos données.</p>
+
+<h2>Vos perles et vos achats</h2>
+<p>Depuis la version 2.5, le <strong>solde de perles</strong> est tenu par notre
+serveur et non plus par votre appareil seul. Deux raisons : vous rendre vos
+perles quand vous changez de téléphone ou réinstallez le jeu, et empêcher qu'on
+s'attribue gratuitement ce qui est vendu. Sont donc enregistrés votre identifiant
+aléatoire, votre solde, et les <em>opérations</em> en attente d'être appliquées
+(une dépense faite hors connexion, par exemple) — ces dernières sont effacées
+automatiquement au bout de sept jours.</p>
+<p>Si vous <strong>achetez un pack de perles</strong>, le jeu transmet à notre
+serveur le <em>reçu</em> remis par Google Play : un jeton d'achat, le descriptif
+signé de la transaction et sa signature. Notre serveur vérifie cette signature,
+puis crédite les perles. Nous conservons ce reçu, le pack concerné et la date :
+c'est ce qui empêche qu'un même achat soit encaissé deux fois, et ce qui nous
+permet de retrouver votre paiement si quelque chose s'est mal passé. Nous ne
+recevons <strong>ni votre nom, ni votre adresse, ni votre moyen de paiement</strong> :
+la transaction elle-même se déroule entièrement chez Google, qui applique
+<a href="https://policies.google.com/privacy">sa propre politique</a>.</p>
+
+<h2>Changer de téléphone</h2>
+<p>La fonction <em>Réglages → Changer de téléphone</em> délivre un code à huit
+caractères, valable trente minutes et utilisable une seule fois. Pendant ce
+délai, nous conservons ce code et l'identifiant du joueur auquel il donne accès ;
+il est ensuite sans valeur. Saisir ce code sur un second appareil rattache
+celui-ci à la même partie : nous enregistrons alors son identifiant aléatoire
+aux côtés du premier.</p>
+
+<h2>Ce que nous ne collectons pas</h2>
+<p>En dehors de ce qui est décrit ci-dessus, aucune donnée n'est transmise à
+notre serveur : ni adresse e-mail, ni contact, ni localisation, ni identifiant
+matériel. L'<strong>identifiant publicitaire</strong> de votre appareil ne nous
+parvient jamais non plus : seul Google l'utilise, sur Android et avec votre
+consentement, pour la vidéo récompensée décrite plus bas. Le jeu ne contient
+ni traqueur, ni outil de mesure d'audience.</p>
+
+<h2>Pourquoi, sur quelle base, et pendant combien de temps</h2>
+<table>
+  <tr><th>Traitement</th><th>Pourquoi</th><th>Base légale</th><th>Durée</th></tr>
+  <tr>
+    <td>Pseudo, profondeur, palier, poisson</td>
+    <td>Afficher le classement public, et attester vos plongées</td>
+    <td><strong>Exécution du contrat</strong> : le jeu est en ligne par
+        construction — c'est le serveur qui garantit plongées, perles et
+        records, et le pseudo, choisi au premier lancement, est votre ligne
+        au classement</td>
+    <td>Tant que vous figurez au classement, jusqu'à votre demande de
+        suppression</td>
+  </tr>
+  <tr>
+    <td>Identifiant aléatoire</td>
+    <td>N'occuper qu'une ligne du classement, et pouvoir vous en retirer</td>
+    <td>Exécution du contrat (même mécanisme)</td>
+    <td>Idem</td>
+  </tr>
+  <tr>
+    <td>Date de première participation</td>
+    <td>Reconnaître les joueurs de la première heure</td>
+    <td><strong>Intérêt légitime</strong> de l'éditeur</td>
+    <td>Idem</td>
+  </tr>
+  <tr>
+    <td>Points de contrôle d'une plongée</td>
+    <td>Vérifier qu'un record a réellement été joué, et non fabriqué — et
+        créditer un record joué juste avant la fermeture de l'application</td>
+    <td><strong>Intérêt légitime</strong> : l'équité du classement, à laquelle
+        tous les joueurs ont intérêt</td>
+    <td>La session d'une plongée est conservée trente jours au plus — le temps
+        de rattraper un record parti en retard — et le serveur ne garde que
+        les trois dernières sessions inutilisées</td>
+  </tr>
+  <tr>
+    <td>Solde de perles et opérations en attente</td>
+    <td>Vous rendre vos perles d'un appareil à l'autre, et protéger ce qui est
+        vendu</td>
+    <td><strong>Exécution du contrat</strong> : c'est ce que vous achetez</td>
+    <td>Tant que votre partie existe ; les opérations en attente, sept jours</td>
+  </tr>
+  <tr>
+    <td>Reçu d'achat Google Play (jeton, descriptif signé, pack, date)</td>
+    <td>Créditer les perles payées, et ne les créditer qu'une fois</td>
+    <td><strong>Exécution du contrat</strong>, et <strong>obligation
+        légale</strong> pour la preuve de la transaction</td>
+    <td>Conservé même après suppression du compte, mais <em>détaché de vous</em> :
+        seul le reçu subsiste, plus son propriétaire</td>
+  </tr>
+  <tr>
+    <td>Publicité récompensée (Android)</td>
+    <td>Vous rendre une plongée contre une vidéo, si vous le choisissez</td>
+    <td>Votre <strong>consentement</strong>, recueilli par le formulaire prévu
+        par la réglementation européenne — et retirable à tout moment dans les
+        réglages</td>
+    <td>Nous ne conservons rien : ces données sont traitées par Google, depuis
+        votre appareil (voir « Publicité récompensée »)</td>
+  </tr>
+  <tr>
+    <td>Code de changement de téléphone</td>
+    <td>Vous rendre votre partie sur un autre appareil</td>
+    <td>Votre <strong>consentement</strong> : vous demandez le code</td>
+    <td>Trente minutes, ou un seul usage</td>
+  </tr>
+  <tr>
+    <td>Messages envoyés depuis le jeu</td>
+    <td>Traiter votre signalement ou votre demande</td>
+    <td>Votre <strong>consentement</strong> : vous écrivez si vous le
+        souhaitez</td>
+    <td>Jusqu'au traitement de la demande</td>
+  </tr>
+</table>
+
+<h2>Où sont vos données, et qui peut y accéder</h2>
+<p>Le serveur et la base de données sont hébergés par <strong>Cloudflare</strong>
+(service D1), dans sa région <em>Europe de l'Ouest</em>. Cloudflare agit
+comme <em>sous-traitant</em> : il héberge, il ne fait rien d'autre de vos
+données. Étant une société de droit américain, ses équipes techniques peuvent
+y accéder pour l'exploitation du service ; ces accès sont encadrés par les
+clauses contractuelles types de la Commission européenne.</p>
+<p>Aucune donnée détenue par notre serveur n'est vendue, louée, ni communiquée
+à un tiers à des fins publicitaires ou commerciales — ni à quiconque d'autre,
+du reste. La publicité récompensée ne contredit pas cette phrase : les données
+qu'elle met en jeu ne passent pas par nous, Google les traite directement
+depuis votre appareil, et seulement si vous y avez consenti.</p>
+
+<h2>Vos droits</h2>
+<p>Vous disposez d'un droit d'<strong>accès</strong>, de
+<strong>rectification</strong>, d'<strong>effacement</strong>, de
+<strong>limitation</strong>, d'<strong>opposition</strong> et de
+<strong>portabilité</strong> sur les données vous concernant. La façon la plus
+simple de les exercer est décrite juste en dessous, dans « Supprimer vos
+données » — le même chemin vaut pour toutes les demandes, et votre identifiant
+y est joint automatiquement.</p>
+<p>Si notre réponse ne vous satisfait pas, vous pouvez saisir l'autorité de
+contrôle : en France, la <strong>CNIL</strong>
+(<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
+
+<h2>Décisions automatisées</h2>
+<p>Deux mécanismes fonctionnent sans intervention humaine, et il est honnête
+de le dire : les <strong>pseudos</strong> sont filtrés automatiquement pour
+écarter les termes injurieux, et un <strong>score jugé physiquement
+impossible</strong> est refusé par le serveur. Ni l'un ni l'autre n'a d'effet
+en dehors du jeu, et vous pouvez contester l'un comme l'autre en nous
+écrivant : un humain regardera.</p>
 
 <section id="suppression">
 <h2>Supprimer vos données</h2>
@@ -79,14 +301,17 @@ s'affichent dans le classement.</p>
 <h3>Comment demander la suppression</h3>
 <p>Deux moyens, au choix :</p>
 <ol>
-  <li><strong>Depuis le jeu, immédiatement</strong> — ouvrez l'écran
-  <em>Panthéon</em>, puis touchez le bouton
-  <strong>« ME RETIRER DU CLASSEMENT »</strong>. Votre entrée est effacée de
-  nos serveurs sur-le-champ, sans confirmation ni délai.</li>
+  <li><strong>Depuis le jeu</strong> — ouvrez <em>Réglages</em>, touchez
+  <strong>« NOUS ÉCRIRE »</strong>, choisissez le sujet
+  <strong>« MON COMPTE »</strong> et demandez la suppression de vos données.
+  Votre identifiant est joint automatiquement : nous retrouvons votre entrée
+  sans que vous ayez à la décrire, et sans que vous ayez à nous communiquer
+  quoi que ce soit d'autre.</li>
   <li><strong>Par e-mail</strong> — écrivez à
   <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a> en
-  précisant votre pseudo. La suppression est effectuée sous 30 jours.</li>
+  précisant votre pseudo.</li>
 </ol>
+<p>Dans les deux cas, la suppression est effectuée sous 30 jours au plus.</p>
 
 <h3>Données supprimées</h3>
 <p>La suppression efface la <strong>totalité</strong> des données vous
@@ -94,11 +319,20 @@ concernant sur notre serveur :</p>
 <ul>
   <li>votre <strong>pseudo</strong> ;</li>
   <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
-  <li>l'<strong>identifiant aléatoire</strong> lié à votre installation ;</li>
-  <li>les éventuelles <strong>sessions de plongée</strong> en cours.</li>
+  <li>l'<strong>identifiant aléatoire</strong> lié à votre installation, et la
+      date de votre première participation ;</li>
+  <li>les éventuelles <strong>sessions de plongée</strong> en cours ;</li>
+  <li>votre <strong>solde de perles</strong> et les opérations en attente ;</li>
+  <li>le <strong>code de changement de téléphone</strong>, s'il en existait un ;</li>
+  <li>les <strong>messages</strong> que vous nous auriez envoyés.</li>
 </ul>
-<p>Aucune donnée vous concernant n'est conservée après cette opération, et
-nous ne gardons aucune copie à d'autres fins.</p>
+<p>Une seule chose subsiste, et elle ne vous désigne plus : le <strong>reçu</strong>
+d'un éventuel achat, dont le lien avec vous est effacé au même moment. Le reçu
+seul, sans propriétaire, est ce qui empêche qu'un achat déjà encaissé soit
+représenté pour être crédité une seconde fois ; il constitue aussi la preuve
+comptable de la transaction, que nous sommes tenus de conserver. En dehors de
+lui, aucune donnée vous concernant n'est gardée, et nous n'en conservons aucune
+copie à d'autres fins.</p>
 
 <h3>Durée de conservation résiduelle</h3>
 <p>Notre hébergeur (Cloudflare D1, Europe de l'Ouest) réalise des sauvegardes
@@ -109,28 +343,63 @@ Ces sauvegardes ne sont jamais consultées ni exploitées en dehors d'une
 restauration après incident technique.</p>
 
 <h3>Données restant sur votre téléphone</h3>
-<p>Vos records, perles et poissons débloqués sont enregistrés localement sur
-votre appareil et ne nous sont jamais transmis. Ils sont supprimés lorsque
-vous désinstallez l'application ou effacez ses données depuis les réglages
-Android.</p>
+<p>Vos records et vos poissons débloqués sont enregistrés localement sur votre
+appareil. Ils sont supprimés lorsque vous désinstallez l'application ou effacez
+ses données depuis les réglages Android. Votre solde de perles, lui, est tenu
+par notre serveur (voir « Vos perles et vos achats ») : la copie qu'en garde
+votre téléphone disparaît avec le reste, mais c'est la demande de suppression
+ci-dessus qui efface le solde lui-même.</p>
 </section>
 
 <h2>Modération</h2>
 <p>Les pseudos sont filtrés automatiquement afin d'écarter les termes
-injurieux ou haineux. Un pseudo inapproprié peut être signalé par e-mail et
-sera supprimé.</p>
+injurieux ou haineux. Un pseudo inapproprié peut être signalé depuis
+<em>Réglages → Nous écrire</em> ou par e-mail, et sera supprimé.</p>
 
-<h2>Publicité et suivi</h2>
-<p>L'application ne contient aucune publicité, aucun traqueur, aucun outil
-d'analyse ni aucun service tiers.</p>
+<h2>Publicité récompensée</h2>
+<p>Une seule forme de publicité existe dans le jeu, et uniquement dans
+l'<strong>application Android</strong> : une vidéo dite « récompensée »,
+proposée sur l'écran de mort quand vous n'avez plus de perles, au plus une
+fois par plongée. Elle ne se lance que si vous touchez le bouton — jamais
+imposée, jamais entre deux écrans, ni bannière ni interstitiel. La version
+navigateur du jeu n'affiche <strong>aucune</strong> publicité.</p>
+<p>Ces vidéos sont servies par <strong>Google AdMob</strong>. Avant la toute
+première, un formulaire de consentement s'affiche, conforme à la
+réglementation européenne : vous pouvez <em>consentir</em>, <em>régler
+finement</em> (« Gérer les options »), ou <em>refuser</em>. Si vous refusez,
+le bouton vidéo n'apparaît tout simplement pas, et le jeu reste entièrement
+jouable — le choix ne coûte rien d'autre que la seconde chance qu'offrait la
+vidéo.</p>
+<p>Pour afficher une annonce et se prémunir de la fraude, Google traite des
+données <em>directement depuis votre appareil</em>, dans la mesure permise par
+votre choix : l'identifiant publicitaire, l'adresse IP, des informations sur
+l'appareil et l'interaction avec l'annonce. Rien de tout cela ne transite par
+notre serveur ni ne nous est communiqué — nous apprenons seulement, de votre
+appareil lui-même, que la vidéo a été regardée jusqu'au bout, pour vous rendre
+la plongée. Le détail de ce que fait Google figure dans
+<a href="https://policies.google.com/privacy">ses règles de confidentialité</a>
+et dans la liste des partenaires affichée par le formulaire.</p>
+<p><strong>Changer d'avis</strong> se fait à tout moment, dans le jeu :
+<em>Réglages → Confidentialité des annonces</em> rouvre le formulaire. Votre
+choix est enregistré sur votre appareil, pas chez nous.</p>
 
 <h2>Enfants</h2>
-<p>L'application convient à tous les âges. Le jeu lui-même ne collecte
-aucune donnée. Le Panthéon étant public, nous invitons les enfants à ne
-jamais utiliser leur nom réel comme pseudo.</p>
+<p>L'application s'adresse aux joueurs de <strong>13 ans et plus</strong> —
+notamment parce qu'elle propose des achats et de la publicité. Le Panthéon
+étant public, nous invitons les plus jeunes à ne jamais utiliser leur nom réel
+comme pseudo, et à ne pas écrire d'information personnelle dans le formulaire
+de contact.</p>
+
+<h2>Modifications de cette politique</h2>
+<p>La date de dernière mise à jour figure en tête de page. Tout changement
+touchant ce qui est collecté, pourquoi, ou pendant combien de temps, sera
+annoncé dans les <em>notes de version</em> de la mise à jour concernée : vous
+n'aurez pas à relire cette page pour savoir que quelque chose a bougé.</p>
 
 <h2>Contact</h2>
-<p>Pour toute question concernant cette politique :
-<a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a></p>
+<p>Pour toute question concernant cette politique, ou pour exercer vos droits :
+<a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.
+Écrivez-nous depuis votre propre boîte mail — nous ne demandons pas votre
+adresse dans le jeu, et c'est ainsi que nous pouvons vous répondre.</p>
 </body>
 </html>
