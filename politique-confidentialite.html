@@ -51,7 +51,7 @@
 </head>
 <body>
 <h1>Politique de confidentialité<br>« Fable of the Abyss »</h1>
-<p class="date">Dernière mise à jour : 1er août 2026</p>
+<p class="date">Dernière mise à jour : 7 août 2026</p>
 <p class="lang"><a href="privacy-policy.html">English version</a></p>
 
 <h2>En résumé</h2>
@@ -76,7 +76,8 @@ rien. Ce qui est envoyé se limite à ce qui suit :</p>
       auprès de Google pour être crédité.</li>
 </ul>
 <p>Une chose ne passe <em>pas</em> par notre serveur : la <strong>vidéo
-récompensée</strong> que l'application Android peut vous proposer à la mort.
+récompensée</strong> que les applications Android et iPhone peuvent vous
+proposer à la mort.
 Elle est servie par Google, avec votre consentement, et la section
 « Publicité récompensée » ci-dessous lui est consacrée.</p>
 
@@ -137,7 +138,7 @@ l'utilisez, nous recevons :</p>
       associé, s'il y en a un ;</li>
   <li>quelques <strong>informations techniques</strong> jointes
       automatiquement, pour que nous puissions comprendre le problème sans
-      vous les demander : la version du jeu, la plateforme (Android ou
+      vous les demander : la version du jeu, la plateforme (Android, iPhone ou
       navigateur), la langue d'affichage, votre meilleure profondeur et votre
       réserve de perles.</li>
 </ul>
@@ -160,14 +161,26 @@ aléatoire, votre solde, et les <em>opérations</em> en attente d'être appliqu�
 (une dépense faite hors connexion, par exemple) — ces dernières sont effacées
 automatiquement au bout de sept jours.</p>
 <p>Si vous <strong>achetez un pack de perles</strong>, le jeu transmet à notre
-serveur le <em>reçu</em> remis par Google Play : un jeton d'achat, le descriptif
-signé de la transaction et sa signature. Notre serveur vérifie cette signature,
-puis crédite les perles. Nous conservons ce reçu, le pack concerné et la date :
+serveur le <em>reçu</em> remis par le magasin de votre appareil, et notre serveur
+le vérifie avant de créditer quoi que ce soit. Ce qui voyage n'est pas tout à
+fait la même chose selon le magasin :</p>
+<ul>
+  <li>sur <strong>Android</strong>, Google Play remet un jeton d'achat, le
+      descriptif signé de la transaction et sa signature ; notre serveur vérifie
+      cette signature avec la clé publique de l'application ;</li>
+  <li>sur <strong>iPhone</strong>, l'App Store remet un <em>identifiant de
+      transaction</em>, et lui seul. Notre serveur interroge alors directement
+      Apple pour savoir si cet achat a bien eu lieu — et s'il n'a pas été
+      remboursé depuis.</li>
+</ul>
+<p>Dans les deux cas nous conservons ce reçu, le pack concerné et la date :
 c'est ce qui empêche qu'un même achat soit encaissé deux fois, et ce qui nous
 permet de retrouver votre paiement si quelque chose s'est mal passé. Nous ne
 recevons <strong>ni votre nom, ni votre adresse, ni votre moyen de paiement</strong> :
-la transaction elle-même se déroule entièrement chez Google, qui applique
-<a href="https://policies.google.com/privacy">sa propre politique</a>.</p>
+la transaction elle-même se déroule entièrement chez Google
+(<a href="https://policies.google.com/privacy">sa politique</a>) ou chez Apple
+(<a href="https://www.apple.com/legal/privacy/">la sienne</a>), qui appliquent
+la leur.</p>
 
 <h2>Changer de téléphone</h2>
 <p>La fonction <em>Réglages → Changer de téléphone</em> délivre un code à huit
@@ -181,9 +194,9 @@ aux côtés du premier.</p>
 <p>En dehors de ce qui est décrit ci-dessus, aucune donnée n'est transmise à
 notre serveur : ni adresse e-mail, ni contact, ni localisation, ni identifiant
 matériel. L'<strong>identifiant publicitaire</strong> de votre appareil ne nous
-parvient jamais non plus : seul Google l'utilise, sur Android et avec votre
-consentement, pour la vidéo récompensée décrite plus bas. Le jeu ne contient
-ni traqueur, ni outil de mesure d'audience.</p>
+parvient jamais non plus : seul Google l'utilise, sur Android comme sur iPhone
+et avec votre consentement, pour la vidéo récompensée décrite plus bas. Le jeu
+ne contient ni traqueur, ni outil de mesure d'audience.</p>
 
 <h2>Pourquoi, sur quelle base, et pendant combien de temps</h2>
 <table>
@@ -228,7 +241,8 @@ ni traqueur, ni outil de mesure d'audience.</p>
     <td>Tant que votre partie existe ; les opérations en attente, sept jours</td>
   </tr>
   <tr>
-    <td>Reçu d'achat Google Play (jeton, descriptif signé, pack, date)</td>
+    <td>Reçu d'achat (Google Play : jeton, descriptif signé — App Store :
+        identifiant de transaction ; puis pack et date)</td>
     <td>Créditer les perles payées, et ne les créditer qu'une fois</td>
     <td><strong>Exécution du contrat</strong>, et <strong>obligation
         légale</strong> pour la preuve de la transaction</td>
@@ -236,7 +250,7 @@ ni traqueur, ni outil de mesure d'audience.</p>
         seul le reçu subsiste, plus son propriétaire</td>
   </tr>
   <tr>
-    <td>Publicité récompensée (Android)</td>
+    <td>Publicité récompensée (Android et iPhone)</td>
     <td>Vous rendre une plongée contre une vidéo, si vous le choisissez</td>
     <td>Votre <strong>consentement</strong>, recueilli par le formulaire prévu
         par la réglementation européenne — et retirable à tout moment dans les
@@ -344,8 +358,9 @@ restauration après incident technique.</p>
 
 <h3>Données restant sur votre téléphone</h3>
 <p>Vos records et vos poissons débloqués sont enregistrés localement sur votre
-appareil. Ils sont supprimés lorsque vous désinstallez l'application ou effacez
-ses données depuis les réglages Android. Votre solde de perles, lui, est tenu
+appareil. Ils sont supprimés lorsque vous désinstallez l'application, ou que
+vous effacez ses données depuis les réglages de votre téléphone. Votre solde de
+perles, lui, est tenu
 par notre serveur (voir « Vos perles et vos achats ») : la copie qu'en garde
 votre téléphone disparaît avec le reste, mais c'est la demande de suppression
 ci-dessus qui efface le solde lui-même.</p>
@@ -357,12 +372,12 @@ injurieux ou haineux. Un pseudo inapproprié peut être signalé depuis
 <em>Réglages → Nous écrire</em> ou par e-mail, et sera supprimé.</p>
 
 <h2>Publicité récompensée</h2>
-<p>Une seule forme de publicité existe dans le jeu, et uniquement dans
-l'<strong>application Android</strong> : une vidéo dite « récompensée »,
-proposée sur l'écran de mort quand vous n'avez plus de perles, au plus une
-fois par plongée. Elle ne se lance que si vous touchez le bouton — jamais
-imposée, jamais entre deux écrans, ni bannière ni interstitiel. La version
-navigateur du jeu n'affiche <strong>aucune</strong> publicité.</p>
+<p>Une seule forme de publicité existe dans le jeu, et uniquement dans les
+<strong>applications Android et iPhone</strong> : une vidéo dite
+« récompensée », proposée sur l'écran de mort quand vous n'avez plus de perles,
+au plus une fois par plongée. Elle ne se lance que si vous touchez le bouton —
+jamais imposée, jamais entre deux écrans, ni bannière ni interstitiel. La
+version navigateur du jeu n'affiche <strong>aucune</strong> publicité.</p>
 <p>Ces vidéos sont servies par <strong>Google AdMob</strong>. Avant la toute
 première, un formulaire de consentement s'affiche, conforme à la
 réglementation européenne : vous pouvez <em>consentir</em>, <em>régler
@@ -370,6 +385,13 @@ finement</em> (« Gérer les options »), ou <em>refuser</em>. Si vous refusez,
 le bouton vidéo n'apparaît tout simplement pas, et le jeu reste entièrement
 jouable — le choix ne coûte rien d'autre que la seconde chance qu'offrait la
 vidéo.</p>
+<p>Sur <strong>iPhone</strong>, une <em>seconde</em> demande suit la première,
+et elle vient d'Apple et non de nous : l'alerte « Autoriser
+« Fable of the Abyss » à suivre votre activité ». C'est celle qui décide si
+l'identifiant publicitaire de votre appareil peut être lu. La refuser ne retire
+rien au jeu ni à la vidéo — les annonces sont alors simplement moins ciblées.
+Ce réglage se reprend à tout moment dans
+<em>Réglages d'iOS → Confidentialité et sécurité → Suivi</em>.</p>
 <p>Pour afficher une annonce et se prémunir de la fraude, Google traite des
 données <em>directement depuis votre appareil</em>, dans la mesure permise par
 votre choix : l'identifiant publicitaire, l'adresse IP, des informations sur

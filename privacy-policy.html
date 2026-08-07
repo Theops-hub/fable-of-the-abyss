@@ -55,7 +55,7 @@
 </head>
 <body>
 <h1>Privacy Policy<br>“Fable of the Abyss”</h1>
-<p class="date">Last updated: 1 August 2026</p>
+<p class="date">Last updated: 7 August 2026</p>
 <p class="lang"><a href="politique-confidentialite.html">Version française</a></p>
 
 <h2>In short</h2>
@@ -80,7 +80,8 @@ nothing. What is sent is limited to the following:</p>
       Google before pearls are credited.</li>
 </ul>
 <p>One thing does <em>not</em> go through our server: the <strong>rewarded
-video</strong> the Android application may offer you when you die. It is
+video</strong> the Android and iPhone applications may offer you when you die.
+It is
 served by Google, with your consent, and the “Rewarded advertising” section
 below is devoted to it.</p>
 
@@ -138,7 +139,7 @@ to act on your ranking entry. If you use it, we receive:</p>
       <strong>name</strong>, if you have one;</li>
   <li>a little <strong>technical information</strong> attached automatically,
       so that we can understand the problem without having to ask: the game
-      version, the platform (Android or browser), the display language, your
+      version, the platform (Android, iPhone or browser), the display language, your
       deepest dive and your pearl balance.</li>
 </ul>
 <p><strong>Do not write anything in that message you would rather not share
@@ -160,14 +161,25 @@ balance, and any <em>operations</em> still waiting to be applied (a purchase mad
 offline, for instance) — the latter are deleted automatically after seven
 days.</p>
 <p>If you <strong>buy a pearl pack</strong>, the game sends our server the
-<em>receipt</em> issued by Google Play: a purchase token, the signed description
-of the transaction, and its signature. Our server checks that signature, then
-credits the pearls. We keep that receipt, the pack concerned and the date: this
-is what prevents the same purchase from being credited twice, and what lets us
-find your payment again if something went wrong. We receive <strong>no name, no
+<em>receipt</em> issued by your device's store, and our server verifies it
+before crediting anything. What travels is not quite the same from one store to
+the other:</p>
+<ul>
+  <li>on <strong>Android</strong>, Google Play issues a purchase token, the
+      signed description of the transaction, and its signature; our server
+      checks that signature against the application's public key;</li>
+  <li>on <strong>iPhone</strong>, the App Store issues a <em>transaction
+      identifier</em>, and nothing else. Our server then asks Apple directly
+      whether that purchase really took place — and whether it has been refunded
+      since.</li>
+</ul>
+<p>In both cases we keep that receipt, the pack concerned and the date: this is
+what prevents the same purchase from being credited twice, and what lets us find
+your payment again if something went wrong. We receive <strong>no name, no
 address and no payment details</strong>: the transaction itself takes place
-entirely at Google, under
-<a href="https://policies.google.com/privacy">its own policy</a>.</p>
+entirely at Google (<a href="https://policies.google.com/privacy">its
+policy</a>) or at Apple (<a href="https://www.apple.com/legal/privacy/">its
+own</a>), under theirs.</p>
 
 <h2>Changing phone</h2>
 <p><em>Settings → Change phone</em> issues an eight-character code, valid for
@@ -180,8 +192,8 @@ its random identifier alongside the first.</p>
 <p>Beyond what is described above, no data is sent to our server: no e-mail
 address, no contacts, no location, no hardware identifier. Your device's
 <strong>advertising identifier</strong> never reaches us either: only Google
-uses it, on Android and with your consent, for the rewarded video described
-below. The game contains no tracker and no analytics tool.</p>
+uses it, on Android as on iPhone and with your consent, for the rewarded video
+described below. The game contains no tracker and no analytics tool.</p>
 
 <h2>Why, on what legal basis, and for how long</h2>
 <table>
@@ -226,7 +238,8 @@ below. The game contains no tracker and no analytics tool.</p>
     <td>As long as your game exists; pending operations, seven days</td>
   </tr>
   <tr>
-    <td>Google Play receipt (token, signed description, pack, date)</td>
+    <td>Purchase receipt (Google Play: token, signed description — App Store:
+        transaction identifier; then pack and date)</td>
     <td>Crediting the pearls paid for, and crediting them only once</td>
     <td><strong>Performance of the contract</strong>, and <strong>legal
         obligation</strong> as proof of the transaction</td>
@@ -234,7 +247,7 @@ below. The game contains no tracker and no analytics tool.</p>
         the receipt remains, no longer its owner</td>
   </tr>
   <tr>
-    <td>Rewarded advertising (Android)</td>
+    <td>Rewarded advertising (Android and iPhone)</td>
     <td>Giving a dive back in exchange for a video, if you choose to</td>
     <td>Your <strong>consent</strong>, collected through the form required by
         European regulations — and withdrawable at any time in the
@@ -336,8 +349,8 @@ following a technical incident.</p>
 
 <h3>Data remaining on your phone</h3>
 <p>Your records and unlocked fish are stored locally on your device. They are
-deleted when you uninstall the application or clear its data from the Android
-settings. Your pearl balance, however, is held by our server (see “Your pearls
+deleted when you uninstall the application, or when you clear its data from your
+phone's settings. Your pearl balance, however, is held by our server (see “Your pearls
 and your purchases”): the copy kept on your phone disappears with the rest, but
 it is the deletion request above that erases the balance itself.</p>
 </section>
@@ -349,10 +362,10 @@ e-mail, and will be removed.</p>
 
 <h2>Rewarded advertising</h2>
 <p>A single form of advertising exists in the game, and only in the
-<strong>Android application</strong>: a so-called “rewarded” video, offered on
-the death screen when you have run out of pearls, at most once per dive. It
-only plays if you tap the button — never forced, never between screens, no
-banner, no interstitial. The browser version of the game shows
+<strong>Android and iPhone applications</strong>: a so-called “rewarded” video,
+offered on the death screen when you have run out of pearls, at most once per
+dive. It only plays if you tap the button — never forced, never between screens,
+no banner, no interstitial. The browser version of the game shows
 <strong>no</strong> advertising at all.</p>
 <p>These videos are served by <strong>Google AdMob</strong>. Before the very
 first one, a consent form appears, as required by European regulations: you
@@ -360,6 +373,12 @@ can <em>consent</em>, <em>fine-tune</em> (“Manage options”), or
 <em>refuse</em>. If you refuse, the video button simply never appears, and the
 game remains fully playable — the choice costs nothing but the second chance
 the video would have offered.</p>
+<p>On <strong>iPhone</strong>, a <em>second</em> prompt follows the first, and it
+comes from Apple rather than from us: the “Allow “Fable of the Abyss” to track
+your activity” alert. That one decides whether your device's advertising
+identifier may be read. Declining takes nothing away from the game or the video —
+the ads are simply less targeted. You can revisit this at any time in
+<em>iOS Settings → Privacy &amp; Security → Tracking</em>.</p>
 <p>To display an ad and guard against fraud, Google processes data
 <em>directly from your device</em>, to the extent your choice allows: the
 advertising identifier, the IP address, information about the device, and how
