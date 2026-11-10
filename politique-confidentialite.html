@@ -26,6 +26,7 @@
   p { margin: 0.8rem 0; }
   ul, ol { margin: 0.8rem 0; padding-left: 1.4rem; }
   li { margin: 0.35rem 0; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
   .date { opacity: 0.7; font-size: 0.9rem; }
   .lang { font-size: 0.9rem; }
   /* Le tableau des finalités doit rester lisible sur un téléphone : il
@@ -51,35 +52,45 @@
 </head>
 <body>
 <h1>Politique de confidentialité<br>« Fable of the Abyss »</h1>
-<p class="date">Dernière mise à jour : 7 août 2026</p>
+<p class="date">Dernière mise à jour : 10 novembre 2026 (version 2.15 du jeu)</p>
 <p class="lang"><a href="privacy-policy.html">English version</a></p>
 
+<!-- Toute modification ici doit être reportée dans privacy-policy.html.
+     Chaque affirmation de cette page a été relue contre le code le
+     10/11/2026 : server/schema.sql et server/src (ce que la base retient et
+     pour combien de temps), godot/scripts/track.gd et docs/ANALYTIQUE.md (la
+     mesure), godot/scripts/notif.gd (les rappels). Une durée ou une liste
+     changée dans le code se change ici dans le même commit. -->
+
 <h2>En résumé</h2>
-<p><strong>Jouer demande une connexion, et un pseudo.</strong> C'est notre
-serveur qui atteste chaque plongée : sans lui, ni vos perles ni votre record ne
-pourraient vous être garantis, et le jeu préfère ne pas vous laisser jouer pour
-rien. Ce qui est envoyé se limite à ce qui suit :</p>
+<p><strong>Jouer demande une connexion.</strong> C'est notre serveur qui
+atteste chaque plongée : sans lui, ni vos perles ni votre record ne pourraient
+vous être garantis, et le jeu préfère ne pas vous laisser jouer pour rien. Ce
+qui lui est envoyé se limite à ce qui suit :</p>
 <ul>
-  <li>le <strong>Panthéon</strong>, le classement en ligne — le pseudo que vous
-      choisissez au premier lancement, et la profondeur de vos plongées ;</li>
+  <li>le <strong>Panthéon</strong>, le classement en ligne — un pseudo, tiré au
+      hasard au premier lancement et que vous remplacez quand vous voulez, et
+      la profondeur de vos plongées ;</li>
   <li>le <strong>déroulé d'une plongée en cours</strong> : à son ouverture, puis
       toutes les dix secondes environ, le jeu annonce au serveur la profondeur
       atteinte. C'est ce qui permet de valider un record sans avoir à croire
       l'appareil sur parole, et c'est aussi ce qui met la partie en pause quand
       le serveur ne répond plus. Ces relevés sont effacés avec la session ;</li>
+  <li>la <strong>mer du jour</strong>, les <strong>cercles d'amis</strong> et
+      les <strong>duels</strong> : vos profondeurs y sont classées, et vues de
+      ceux qui y jouent avec vous ;</li>
+  <li>ce que le serveur <strong>retient de votre partie</strong> : solde de
+      perles, série de jours, défis déjà récompensés, jours où vous avez
+      joué ;</li>
   <li><strong>« Nous écrire »</strong>, le formulaire de contact des réglages —
       rien n'est envoyé tant que vous n'écrivez pas ;</li>
-  <li>votre <strong>solde de perles</strong>, tenu par le serveur depuis la
-      version 2.5 — c'est ce qui vous rend vos achats après une réinstallation,
-      et ce qui empêche de s'attribuer gratuitement ce qui se vend ;</li>
   <li>vos <strong>achats</strong> de perles, dont le reçu doit être vérifié
-      auprès de Google pour être crédité.</li>
+      auprès de Google ou d'Apple pour être crédité.</li>
 </ul>
-<p>Une chose ne passe <em>pas</em> par notre serveur : la <strong>vidéo
-récompensée</strong> que les applications Android et iPhone peuvent vous
-proposer à la mort.
-Elle est servie par Google, avec votre consentement, et la section
-« Publicité récompensée » ci-dessous lui est consacrée.</p>
+<p>Deux choses ne passent <em>pas</em> par notre serveur et vont chez Google :
+la <strong>vidéo récompensée</strong> des applications Android et iPhone, et la
+<strong>mesure d'audience</strong> de l'application Android. Chacune a sa
+section plus bas, avec ce que vous pouvez refuser.</p>
 
 <h2>Qui est responsable de vos données</h2>
 <p>L'application est éditée par <strong>KFR Studio</strong> (Theo Kiefer),
@@ -88,78 +99,145 @@ pour exercer vos droits :
 <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.</p>
 
 <h2>Données enregistrées sur votre appareil</h2>
-<p>Vos réglages, votre progression (paliers, missions, poissons débloqués) et
-vos records sont enregistrés sur votre appareil, et disparaissent si vous
-désinstallez l'application. La plupart n'en sortent jamais — à deux exceptions
-près, décrites dans cette page : votre <strong>meilleure profondeur</strong>,
-qui figure au Panthéon, et votre <strong>solde de perles</strong>, tenu par le
-serveur.</p>
-<p>Votre <strong>solde de perles</strong> faisait partie de cette liste jusqu'à
-la version 2.5 ; il est désormais tenu par notre serveur (voir plus bas). Votre
-appareil n'en garde qu'une copie d'affichage, pour que l'écran dise vrai sans
-attendre le réseau — c'est le solde du serveur qui fait foi.</p>
-<p>Sur navigateur, elles utilisent le <em>stockage local</em> du site
-(<code>localStorage</code>). L'application <strong>ne dépose aucun cookie</strong>
-et n'utilise aucun traceur : ce stockage sert uniquement à vous rendre votre
-partie au lancement suivant, et rien n'en est lu par un tiers.</p>
+<p>Vos réglages, vos poissons débloqués, les strophes de la fable déjà lues et
+une copie de votre progression sont enregistrés sur votre appareil, et
+disparaissent si vous désinstallez l'application. Les réglages n'en sortent
+jamais. Le reste est aussi tenu par notre serveur, et chaque section de cette
+page dit quoi.</p>
+<p>Votre <strong>solde de perles</strong>, en particulier, est tenu par notre
+serveur depuis la version 2.5. Votre appareil n'en garde qu'une copie
+d'affichage, pour que l'écran dise vrai sans attendre le réseau — c'est le
+solde du serveur qui fait foi.</p>
+<p>Dans un navigateur, ces données utilisent le <em>stockage local</em> du site
+(<code>localStorage</code>). La version navigateur <strong>ne dépose aucun
+cookie</strong> et n'embarque ni publicité ni mesure d'audience : ce stockage
+sert uniquement à vous rendre votre partie au lancement suivant.</p>
 
-<!-- Toute modification ici doit être reportée dans privacy-policy.html. -->
 <h2>Le Panthéon (le classement en ligne)</h2>
-<p>Le pseudo se choisit au <strong>premier lancement</strong> : il fait partie
-de l'entrée dans le jeu. Chaque joueur figure au classement — c'est le même
+<p>Au <strong>premier lancement</strong>, le jeu vous inscrit sous un pseudo
+tiré au hasard (« PLONGEUR4821 ») pour que vous puissiez plonger tout de
+suite ; l'écran de fin de plongée et le Panthéon vous proposent ensuite de le
+remplacer par le vôtre. Chaque joueur figure au classement — c'est le même
 mécanisme qui permet au serveur d'attester les plongées, de garder les perles
-en lieu sûr et de rendre sa partie à qui change de téléphone. Sont transmises
+en lieu sûr et de rendre sa partie à qui change de téléphone. Sont transmis
 à notre serveur :</p>
 <ul>
-  <li>le <strong>pseudo</strong> que vous avez saisi ;</li>
+  <li>le <strong>pseudo</strong> ;</li>
   <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
   <li>le <strong>poisson</strong> avec lequel ce record a été établi, affiché
       en vignette à côté de votre pseudo ;</li>
   <li>un <strong>identifiant aléatoire</strong> tiré au hasard lors de votre
       première participation, et la <strong>date</strong> de celle-ci ;</li>
   <li>pendant une plongée, des <strong>points de contrôle</strong> de
-      profondeur, qui permettent de vérifier qu'un record a bien été joué.</li>
+      profondeur, qui permettent de vérifier qu'un record a bien été joué ;</li>
+  <li>avec un record, sa <strong>preuve</strong> : la durée chronométrée par le
+      serveur, le nombre de points de contrôle, l'écart le plus court et le
+      plus long entre deux d'entre eux, la profondeur de départ et le record
+      qu'il remplace.</li>
 </ul>
+<p>Depuis la version 2.15, les classements TOUJOURS et SEMAINE comptent les
+<strong>mètres descendus en une seule plongée</strong> : le serveur garde pour
+chacun votre meilleure descente, la profondeur atteinte, celle du départ et le
+poisson. Le classement tel qu'il était à l'arrivée de la 2.15 est figé sous le
+nom de <strong>« Première mer »</strong> : pour chaque joueur qui y figurait,
+sa profondeur, la date de ce record et son poisson.</p>
 <p>Cet identifiant n'est <em>pas</em> un identifiant matériel : il ne
 provient ni de votre téléphone, ni d'un compte, et ne permet pas de vous
 suivre dans d'autres applications. Il sert uniquement à ce que vous
 n'occupiez qu'une seule ligne du classement et à pouvoir vous en retirer.</p>
 <p>Le pseudo et le score sont publics par nature, puisqu'ils s'affichent dans
-le classement. Les échanges avec le serveur sont chiffrés (HTTPS).</p>
+le classement — y compris dans la plongée des autres joueurs, où le record
+d'un voisin de classement sert de repère à dépasser. Les échanges avec le
+serveur sont chiffrés (HTTPS).</p>
+
+<h2>La mer du jour, les cercles d'amis et les duels</h2>
+<p>Ces trois modes sont des classements plus petits que le Panthéon. Vous n'y
+entrez que si vous y jouez.</p>
+<ul>
+  <li><strong>La mer du jour</strong> — pour chaque jour où vous la jouez,
+      votre meilleure profondeur et le nombre de vos essais. Les trois premiers
+      d'un jour reçoivent des perles : le serveur garde la trace de cette prime
+      (jour, rang, montant).</li>
+  <li><strong>Les cercles d'amis</strong> — un cercle a un nom, écrit par son
+      créateur et filtré comme un pseudo, et un code à six caractères. Le
+      serveur enregistre qui en est membre et depuis quand. Les membres d'un
+      cercle voient les pseudos et les profondeurs des autres membres.</li>
+  <li><strong>Les duels</strong> — un duel a un code à six caractères. Le
+      serveur enregistre qui l'a créé, et la profondeur de chacun de ceux qui
+      l'ont joué ; quiconque détient le code voit ce classement. Un duel se
+      ferme sept jours après sa création, et ses lignes sont alors
+      effacées.</li>
+</ul>
+<p>Le bouton <strong>PARTAGER</strong> ouvre la feuille de partage de votre
+téléphone : le texte (une profondeur, un code de cercle ou de duel, un lien
+vers la fiche du jeu) part vers l'application que vous choisissez. Nous ne
+savons ni laquelle, ni à qui vous l'envoyez.</p>
+
+<h2>Ce que le serveur retient de votre partie</h2>
+<p>Plusieurs choses sont tenues par le serveur plutôt que par votre téléphone,
+pour la raison qui vaut pour les perles : un gain adossé au temps se falsifie
+en avançant l'horloge de l'appareil. Sont enregistrés, sous votre identifiant
+aléatoire :</p>
+<ul>
+  <li>votre <strong>série de jours</strong> : sa longueur, le dernier jour
+      validé et le nombre de plongées du jour en cours ;</li>
+  <li>les <strong>défis</strong> dont la récompense vous a déjà été versée, et
+      la date de chaque versement ;</li>
+  <li>la date de votre dernière relève de l'<strong>huîtrière</strong> ;</li>
+  <li>le <strong>nombre de plongées</strong> jouées et le total des perles
+      gagnées depuis votre arrivée ;</li>
+  <li>les <strong>jours où vous avez joué</strong> (une ligne par jour, sans
+      l'heure) et la date de votre dernière venue ;</li>
+  <li>la <strong>plateforme</strong> (Android, iPhone ou navigateur) et la
+      <strong>version du jeu</strong> que vous utilisez ;</li>
+  <li>trois compteurs contre les abus : ce que vos plongées ont rapporté dans
+      l'heure en cours, le nombre de vidéos « ×2 perles » du jour, et la date
+      de votre dernière création de cercle.</li>
+</ul>
+<p>Les jours de venue, la plateforme et la version nous servent à savoir
+combien de joueurs reviennent et quelle version prévenir d'une mise à jour.
+C'est une mesure tenue par notre serveur seul : elle n'est transmise à
+personne.</p>
 
 <h2>« Nous écrire » (formulaire de contact, facultatif)</h2>
 <p>L'écran <em>Réglages</em> propose un formulaire pour nous signaler un
-problème ou nous demander une action sur votre entrée du classement. Si vous
-l'utilisez, nous recevons :</p>
+problème ou nous demander une action sur votre partie. Si vous l'utilisez,
+nous recevons :</p>
 <ul>
   <li>le <strong>texte de votre message</strong> et le sujet choisi (bug,
       compte, autre) ;</li>
   <li>votre <strong>identifiant aléatoire</strong> et le <strong>pseudo</strong>
-      associé, s'il y en a un ;</li>
+      associé ;</li>
   <li>quelques <strong>informations techniques</strong> jointes
       automatiquement, pour que nous puissions comprendre le problème sans
-      vous les demander : la version du jeu, la plateforme (Android, iPhone ou
-      navigateur), la langue d'affichage, votre meilleure profondeur et votre
-      réserve de perles.</li>
+      vous les demander : la version du jeu, la plateforme, la langue
+      d'affichage, votre meilleure profondeur et votre réserve de perles.</li>
 </ul>
 <p><strong>N'écrivez rien dans ce message que vous ne souhaitez pas nous
 confier</strong> : son contenu est libre, c'est vous qui le rédigez. Nous ne
 demandons ni votre nom, ni votre adresse e-mail, ni aucune autre coordonnée.
-<em>Nous n'avons donc aucun moyen de vous répondre depuis le jeu</em> : si
-vous attendez une réponse, écrivez-nous plutôt à l'adresse indiquée en bas de
-cette page.</p>
-<p>Les messages sont lus par l'éditeur, ne sont communiqués à personne, et
-sont supprimés une fois la demande traitée — et en tout état de cause si vous
-demandez la suppression de vos données.</p>
+Si nous vous répondons, la réponse s'affiche <em>dans le jeu</em>, à votre
+lancement suivant ; elle est gardée sur notre serveur avec votre message.</p>
+<p>Quand un message arrive, notre serveur nous prévient par e-mail. Cet
+e-mail reprend votre pseudo, le début de votre identifiant, votre texte et les
+informations techniques ci-dessus. Il est acheminé par <strong>Resend</strong>,
+un prestataire d'envoi d'e-mails établi aux États-Unis, jusqu'à notre boîte de
+réception (Gmail).</p>
+<p>Les messages sont lus par l'éditeur. Ils sont conservés, avec nos réponses,
+pour suivre votre demande : aucun effacement automatique n'est programmé, et
+ils sont supprimés si vous demandez la suppression de vos données.</p>
 
 <h2>Vos perles et vos achats</h2>
 <p>Depuis la version 2.5, le <strong>solde de perles</strong> est tenu par notre
 serveur et non plus par votre appareil seul. Deux raisons : vous rendre vos
 perles quand vous changez de téléphone ou réinstallez le jeu, et empêcher qu'on
 s'attribue gratuitement ce qui est vendu. Sont donc enregistrés votre identifiant
-aléatoire, votre solde, et les <em>opérations</em> en attente d'être appliquées
-(une dépense faite hors connexion, par exemple) — ces dernières sont effacées
-automatiquement au bout de sept jours.</p>
+aléatoire, votre solde, et les <em>opérations</em> qui l'ont fait bouger hors
+des plongées (une dépense, un remboursement). Ces opérations sont effacées
+automatiquement au bout de 92 jours, à deux exceptions près, gardées tant que
+votre partie existe parce qu'elles expliquent un solde contesté : la reprise de
+votre solde d'origine, et les corrections que l'éditeur aurait faites à la
+main.</p>
 <p>Si vous <strong>achetez un pack de perles</strong>, le jeu transmet à notre
 serveur le <em>reçu</em> remis par le magasin de votre appareil, et notre serveur
 le vérifie avant de créditer quoi que ce soit. Ce qui voyage n'est pas tout à
@@ -173,11 +251,12 @@ fait la même chose selon le magasin :</p>
       Apple pour savoir si cet achat a bien eu lieu — et s'il n'a pas été
       remboursé depuis.</li>
 </ul>
-<p>Dans les deux cas nous conservons ce reçu, le pack concerné et la date :
-c'est ce qui empêche qu'un même achat soit encaissé deux fois, et ce qui nous
-permet de retrouver votre paiement si quelque chose s'est mal passé. Nous ne
-recevons <strong>ni votre nom, ni votre adresse, ni votre moyen de paiement</strong> :
-la transaction elle-même se déroule entièrement chez Google
+<p>Dans les deux cas nous conservons ce reçu, le pack concerné, le nombre de
+perles créditées, le magasin et la date : c'est ce qui empêche qu'un même achat
+soit encaissé deux fois, et ce qui nous permet de retrouver votre paiement si
+quelque chose s'est mal passé. Nous ne recevons <strong>ni votre nom, ni votre
+adresse, ni votre moyen de paiement</strong> : la transaction elle-même se
+déroule entièrement chez Google
 (<a href="https://policies.google.com/privacy">sa politique</a>) ou chez Apple
 (<a href="https://www.apple.com/legal/privacy/">la sienne</a>), qui appliquent
 la leur.</p>
@@ -185,29 +264,133 @@ la leur.</p>
 <h2>Changer de téléphone</h2>
 <p>La fonction <em>Réglages → Changer de téléphone</em> délivre un code à huit
 caractères, valable trente minutes et utilisable une seule fois. Pendant ce
-délai, nous conservons ce code et l'identifiant du joueur auquel il donne accès ;
-il est ensuite sans valeur. Saisir ce code sur un second appareil rattache
+délai, nous conservons ce code, l'identifiant du joueur auquel il donne accès
+et la liste de ses poissons, pour les lui rendre sur le nouvel appareil ; le
+code est ensuite sans valeur. Le saisir sur un second appareil rattache
 celui-ci à la même partie : nous enregistrons alors son identifiant aléatoire
 aux côtés du premier.</p>
 
+<h2>Rappels (facultatifs)</h2>
+<p>Après votre troisième plongée, les applications Android et iPhone vous
+demandent une fois si elles peuvent vous envoyer des rappels (« La mer du jour
+a changé », « Ta série t'attend »). Ces notifications sont programmées
+<em>par votre téléphone lui-même</em> : rien n'est envoyé à notre serveur ni à
+un service de notification, et nous ne recevons aucun identifiant de votre
+appareil pour cela. Il en part une par jour au plus, pendant trois jours au
+plus après votre dernière ouverture du jeu. Vous les coupez à tout moment
+dans <em>Réglages → Rappels</em>.</p>
+
+<h2>Publicité récompensée</h2>
+<p>Une seule forme de publicité existe dans le jeu, et uniquement dans les
+<strong>applications Android et iPhone</strong> : la vidéo dite
+« récompensée ». Elle est proposée à deux endroits de l'écran de fin de
+plongée : pour <strong>reprendre la plongée</strong> (une fois par plongée,
+jamais dans la mer du jour ni dans un duel), et pour <strong>doubler les
+perles</strong> que la plongée a rapportées (dix fois par jour au plus). Elle
+ne se lance que si vous touchez le bouton — jamais imposée, jamais entre deux
+écrans, ni bannière ni interstitiel. La version navigateur du jeu n'affiche
+<strong>aucune</strong> publicité.</p>
+<p>Ces vidéos sont servies par <strong>Google AdMob</strong>. Là où la
+réglementation européenne s'applique, un formulaire de consentement s'affiche
+avant la toute première, après l'une de vos premières plongées : vous pouvez
+<em>consentir</em>, <em>régler finement</em> (« Gérer les options »), ou
+<em>refuser</em>. Si vous refusez, le bouton vidéo n'apparaît tout simplement
+pas, et le jeu reste entièrement jouable — le choix ne coûte rien d'autre que
+ce qu'offrait la vidéo.</p>
+<p>Sur <strong>iPhone</strong>, une <em>seconde</em> demande suit la première,
+et elle vient d'Apple et non de nous : l'alerte « Autoriser
+« Fable of the Abyss » à suivre votre activité ». C'est celle qui décide si
+l'identifiant publicitaire de votre appareil peut être lu. La refuser ne retire
+rien au jeu ni à la vidéo — les annonces sont alors simplement moins ciblées.
+Ce réglage se reprend à tout moment dans
+<em>Réglages d'iOS → Confidentialité et sécurité → Suivi</em>.</p>
+<p>Pour afficher une annonce et se prémunir de la fraude, Google traite des
+données <em>directement depuis votre appareil</em>, dans la mesure permise par
+votre choix : l'identifiant publicitaire, l'adresse IP, des informations sur
+l'appareil et l'interaction avec l'annonce. Rien de tout cela ne transite par
+notre serveur ni ne nous est communiqué. Nous apprenons seulement, de votre
+appareil lui-même, que la vidéo a été regardée jusqu'au bout, pour vous rendre
+la plongée ou doubler vos perles ; le serveur compte les doublements du jour.
+Le détail de ce que fait Google figure dans
+<a href="https://policies.google.com/privacy">ses règles de confidentialité</a>
+et dans la liste des partenaires affichée par le formulaire.</p>
+<p><strong>Changer d'avis</strong> se fait à tout moment, dans le jeu :
+<em>Réglages → Publicité : tes choix</em> rouvre le formulaire. Votre
+choix est enregistré sur votre appareil, pas chez nous.</p>
+
+<h2 id="mesure">Mesure d'audience (application Android)</h2>
+<p>L'application Android embarque <strong>Google Analytics for
+Firebase</strong>. Elle nous sert à savoir si le jeu fonctionne : où les
+plongées s'arrêtent, quels écrans sont ouverts, si une version retient mieux
+que la précédente. L'application iPhone et la version navigateur ne
+l'embarquent pas.</p>
+<p>Ce qui est envoyé à Google, depuis votre appareil :</p>
+<ul>
+  <li>des <strong>événements de jeu</strong> : début et fin d'une plongée
+      (profondeur, durée, cause de la mort, poisson joué), paliers franchis,
+      bulles gagnées, défis réussis, rencontres, strophes lues ;</li>
+  <li>des <strong>événements d'écran</strong> : boutique ou classement
+      ouverts, poisson choisi, partage lancé, duel créé ou rejoint, rappels
+      acceptés ou refusés, fenêtre de note demandée ;</li>
+  <li>les <strong>perles</strong> gagnées et dépensées, les
+      <strong>vidéos</strong> proposées, regardées ou refusées (avec le revenu
+      que Google nous attribue pour chacune), et les <strong>achats</strong>
+      commencés, aboutis ou abandonnés (le pack et son prix affiché) ;</li>
+  <li>des <strong>caractéristiques de votre partie</strong>, rangées par
+      tranches : nombre de plongées, meilleure profondeur, nombre de poissons,
+      poisson le plus joué, semaine d'installation, achat déjà fait ou non ;</li>
+  <li>ce que l'outil de Google relève de lui-même : le modèle de l'appareil,
+      la version d'Android, la langue, la version du jeu, et le
+      <strong>pays et la ville</strong> qu'il déduit de votre adresse IP.</li>
+</ul>
+<p>Aucun de ces événements ne porte votre pseudo, votre identifiant de joueur,
+le code d'un cercle ou d'un duel, ni le texte d'un message.</p>
+<p><strong>Ce que change votre réponse au formulaire.</strong> Le formulaire
+de consentement de la section précédente vaut aussi pour la mesure :</p>
+<ul>
+  <li><strong>tant que vous n'avez pas répondu, et si vous refusez</strong>,
+      les événements partent quand même, mais <em>sans identifiant</em> :
+      Google ne peut ni les rattacher à votre appareil, ni les relier entre
+      eux d'un jour à l'autre ;</li>
+  <li><strong>si vous acceptez</strong>, Google attribue à votre installation
+      un identifiant qui lui est propre — il change si vous réinstallez le
+      jeu — et peut lire l'identifiant publicitaire de l'appareil si vous avez
+      aussi accepté la publicité ;</li>
+  <li>là où la réglementation européenne ne s'applique pas, Google n'affiche
+      pas ce formulaire et la mesure fonctionne avec identifiant.</li>
+</ul>
+<p>Vous revenez sur ce choix dans <em>Réglages → Publicité : tes choix</em>.</p>
+<p><strong>Où vont ces données, et combien de temps.</strong> Google les
+conserve pour notre compte, et peut les traiter aux États-Unis, dans le cadre
+de protection des données conclu entre l'Union européenne et les États-Unis
+(<em>Data Privacy Framework</em>). Dans Google Analytics, les événements
+rattachés à un identifiant sont effacés au bout de quatorze mois au plus. Nous
+en recevons une copie quotidienne dans Google BigQuery, hébergée dans l'Union
+européenne : elle ne contient aucun identifiant publicitaire. Aucun effacement
+automatique n'y est programmé — nous la gardons tant que le jeu est publié,
+pour comparer ses versions entre elles.</p>
+
 <h2>Ce que nous ne collectons pas</h2>
-<p>En dehors de ce qui est décrit ci-dessus, aucune donnée n'est transmise à
-notre serveur : ni adresse e-mail, ni contact, ni localisation, ni identifiant
-matériel. L'<strong>identifiant publicitaire</strong> de votre appareil ne nous
-parvient jamais non plus : seul Google l'utilise, sur Android comme sur iPhone
-et avec votre consentement, pour la vidéo récompensée décrite plus bas. Le jeu
-ne contient ni traqueur, ni outil de mesure d'audience.</p>
+<p>En dehors de ce qui est décrit dans cette page, aucune donnée n'est
+transmise à notre serveur : ni adresse e-mail, ni contact, ni localisation, ni
+identifiant matériel. Notre base n'enregistre aucune adresse IP ; notre
+hébergeur la voit passer, comme tout serveur web, et tient un journal
+technique des requêtes pendant quelques jours, que nous ne consultons qu'en
+cas de panne. L'<strong>identifiant publicitaire</strong> de votre appareil ne
+nous parvient jamais : seul Google l'utilise, avec votre consentement, pour la
+vidéo récompensée et la mesure décrites plus haut. La fenêtre qui vous propose
+de noter le jeu est celle du magasin : nous ne savons pas si vous avez
+noté.</p>
 
 <h2>Pourquoi, sur quelle base, et pendant combien de temps</h2>
 <table>
   <tr><th>Traitement</th><th>Pourquoi</th><th>Base légale</th><th>Durée</th></tr>
   <tr>
-    <td>Pseudo, profondeur, palier, poisson</td>
+    <td>Pseudo, profondeur, palier, poisson, preuve du record</td>
     <td>Afficher le classement public, et attester vos plongées</td>
     <td><strong>Exécution du contrat</strong> : le jeu est en ligne par
         construction — c'est le serveur qui garantit plongées, perles et
-        records, et le pseudo, choisi au premier lancement, est votre ligne
-        au classement</td>
+        records, et le pseudo est votre ligne au classement</td>
     <td>Tant que vous figurez au classement, jusqu'à votre demande de
         suppression</td>
   </tr>
@@ -234,15 +417,39 @@ ne contient ni traqueur, ni outil de mesure d'audience.</p>
         les trois dernières sessions inutilisées</td>
   </tr>
   <tr>
-    <td>Solde de perles et opérations en attente</td>
+    <td>Mer du jour, classement de la semaine, cercles, duels</td>
+    <td>Tenir les classements des modes que vous choisissez de jouer</td>
+    <td><strong>Exécution du contrat</strong></td>
+    <td>Jusqu'à votre demande de suppression ; un duel, sept jours ; un
+        cercle, tant qu'il lui reste un membre</td>
+  </tr>
+  <tr>
+    <td>Série de jours, défis récompensés, huîtrière, compteurs de
+        plongées et de perles</td>
+    <td>Tenir votre progression à l'abri de l'horloge du téléphone, et vous
+        la rendre d'un appareil à l'autre</td>
+    <td><strong>Exécution du contrat</strong></td>
+    <td>Tant que votre partie existe</td>
+  </tr>
+  <tr>
+    <td>Jours de venue, dernière venue, plateforme, version du jeu</td>
+    <td>Savoir combien de joueurs reviennent, et quelle version prévenir
+        d'une mise à jour</td>
+    <td><strong>Intérêt légitime</strong> de l'éditeur : une mesure tenue par
+        notre seul serveur, sans tiers</td>
+    <td>Tant que votre partie existe</td>
+  </tr>
+  <tr>
+    <td>Solde de perles et opérations</td>
     <td>Vous rendre vos perles d'un appareil à l'autre, et protéger ce qui est
         vendu</td>
     <td><strong>Exécution du contrat</strong> : c'est ce que vous achetez</td>
-    <td>Tant que votre partie existe ; les opérations en attente, sept jours</td>
+    <td>Le solde, tant que votre partie existe ; les opérations, 92 jours
+        (voir « Vos perles et vos achats » pour les deux exceptions)</td>
   </tr>
   <tr>
     <td>Reçu d'achat (Google Play : jeton, descriptif signé — App Store :
-        identifiant de transaction ; puis pack et date)</td>
+        identifiant de transaction ; puis pack, perles et date)</td>
     <td>Créditer les perles payées, et ne les créditer qu'une fois</td>
     <td><strong>Exécution du contrat</strong>, et <strong>obligation
         légale</strong> pour la preuve de la transaction</td>
@@ -251,25 +458,48 @@ ne contient ni traqueur, ni outil de mesure d'audience.</p>
   </tr>
   <tr>
     <td>Publicité récompensée (Android et iPhone)</td>
-    <td>Vous rendre une plongée contre une vidéo, si vous le choisissez</td>
+    <td>Vous rendre une plongée ou doubler vos perles contre une vidéo, si
+        vous le choisissez</td>
     <td>Votre <strong>consentement</strong>, recueilli par le formulaire prévu
         par la réglementation européenne — et retirable à tout moment dans les
         réglages</td>
-    <td>Nous ne conservons rien : ces données sont traitées par Google, depuis
-        votre appareil (voir « Publicité récompensée »)</td>
+    <td>Nous ne conservons que le nombre de doublements du jour : les données
+        publicitaires sont traitées par Google, depuis votre appareil</td>
   </tr>
   <tr>
-    <td>Code de changement de téléphone</td>
+    <td>Mesure d'audience <em>avec</em> identifiant (Android)</td>
+    <td>Comprendre où le jeu perd ses joueurs, et comparer ses versions</td>
+    <td>Votre <strong>consentement</strong>, recueilli par le même
+        formulaire</td>
+    <td>Quatorze mois au plus dans Google Analytics ; notre copie, tant que le
+        jeu est publié</td>
+  </tr>
+  <tr>
+    <td>Mesure d'audience <em>sans</em> identifiant (Android)</td>
+    <td>Compter les plongées et repérer les pannes sans reconnaître
+        personne</td>
+    <td><strong>Intérêt légitime</strong> de l'éditeur</td>
+    <td>Idem — ces événements ne se rattachent à aucun appareil</td>
+  </tr>
+  <tr>
+    <td>Rappels (Android et iPhone)</td>
+    <td>Vous rappeler la mer du jour ou votre série</td>
+    <td>Votre <strong>consentement</strong> : l'autorisation de notifier que
+        demande le téléphone</td>
+    <td>Rien n'est conservé chez nous : le téléphone les programme seul</td>
+  </tr>
+  <tr>
+    <td>Code de changement de téléphone, et liste de vos poissons</td>
     <td>Vous rendre votre partie sur un autre appareil</td>
     <td>Votre <strong>consentement</strong> : vous demandez le code</td>
     <td>Trente minutes, ou un seul usage</td>
   </tr>
   <tr>
-    <td>Messages envoyés depuis le jeu</td>
+    <td>Messages envoyés depuis le jeu, nos réponses, et l'e-mail d'alerte</td>
     <td>Traiter votre signalement ou votre demande</td>
     <td>Votre <strong>consentement</strong> : vous écrivez si vous le
         souhaitez</td>
-    <td>Jusqu'au traitement de la demande</td>
+    <td>Jusqu'à votre demande de suppression</td>
   </tr>
 </table>
 
@@ -280,11 +510,20 @@ comme <em>sous-traitant</em> : il héberge, il ne fait rien d'autre de vos
 données. Étant une société de droit américain, ses équipes techniques peuvent
 y accéder pour l'exploitation du service ; ces accès sont encadrés par les
 clauses contractuelles types de la Commission européenne.</p>
-<p>Aucune donnée détenue par notre serveur n'est vendue, louée, ni communiquée
-à un tiers à des fins publicitaires ou commerciales — ni à quiconque d'autre,
-du reste. La publicité récompensée ne contredit pas cette phrase : les données
-qu'elle met en jeu ne passent pas par nous, Google les traite directement
-depuis votre appareil, et seulement si vous y avez consenti.</p>
+<p>D'autres sociétés reçoivent des données, chacune pour un usage
+précis :</p>
+<ul>
+  <li><strong>Google</strong>, pour la vidéo récompensée (AdMob, Android et
+      iPhone) et la mesure d'audience (Analytics for Firebase, Android) —
+      directement depuis votre appareil, dans les limites de votre choix ;</li>
+  <li><strong>Resend</strong>, pour acheminer l'e-mail qui nous prévient de
+      votre message, si vous nous écrivez ;</li>
+  <li><strong>Google Play</strong> ou <strong>Apple</strong>, que notre serveur
+      interroge pour vérifier un achat.</li>
+</ul>
+<p>En dehors de cela, aucune donnée détenue par notre serveur n'est vendue,
+louée, ni communiquée à un tiers, à des fins publicitaires, commerciales ou
+autres.</p>
 
 <h2>Vos droits</h2>
 <p>Vous disposez d'un droit d'<strong>accès</strong>, de
@@ -299,12 +538,13 @@ contrôle : en France, la <strong>CNIL</strong>
 (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
 
 <h2>Décisions automatisées</h2>
-<p>Deux mécanismes fonctionnent sans intervention humaine, et il est honnête
-de le dire : les <strong>pseudos</strong> sont filtrés automatiquement pour
-écarter les termes injurieux, et un <strong>score jugé physiquement
-impossible</strong> est refusé par le serveur. Ni l'un ni l'autre n'a d'effet
-en dehors du jeu, et vous pouvez contester l'un comme l'autre en nous
-écrivant : un humain regardera.</p>
+<p>Trois mécanismes fonctionnent sans intervention humaine, et il est honnête
+de le dire : les <strong>pseudos</strong> et les <strong>noms de
+cercle</strong> sont filtrés automatiquement pour écarter les termes injurieux,
+un <strong>score jugé physiquement impossible</strong> est refusé par le
+serveur, et les <strong>perles gagnées en une heure</strong> sont plafonnées à
+ce qu'un très bon joueur peut ramasser. Aucun n'a d'effet en dehors du jeu, et
+vous pouvez contester chacun en nous écrivant : un humain regardera.</p>
 
 <section id="suppression">
 <h2>Supprimer vos données</h2>
@@ -317,7 +557,7 @@ en dehors du jeu, et vous pouvez contester l'un comme l'autre en nous
 <ol>
   <li><strong>Depuis le jeu</strong> — ouvrez <em>Réglages</em>, touchez
   <strong>« NOUS ÉCRIRE »</strong>, choisissez le sujet
-  <strong>« MON COMPTE »</strong> et demandez la suppression de vos données.
+  <strong>« MA PARTIE »</strong> et demandez la suppression de vos données.
   Votre identifiant est joint automatiquement : nous retrouvons votre entrée
   sans que vous ayez à la décrire, et sans que vous ayez à nous communiquer
   quoi que ce soit d'autre.</li>
@@ -332,96 +572,95 @@ en dehors du jeu, et vous pouvez contester l'un comme l'autre en nous
 concernant sur notre serveur :</p>
 <ul>
   <li>votre <strong>pseudo</strong> ;</li>
-  <li>votre <strong>meilleure profondeur</strong> et le palier atteint ;</li>
-  <li>l'<strong>identifiant aléatoire</strong> lié à votre installation, et la
-      date de votre première participation ;</li>
+  <li>votre <strong>meilleure profondeur</strong>, sa preuve, le palier
+      atteint, et votre place dans la « Première mer » ;</li>
+  <li>l'<strong>identifiant aléatoire</strong> de chacune de vos
+      installations, et la date de votre première participation ;</li>
+  <li>vos lignes dans les classements de la <strong>semaine</strong>, de la
+      <strong>mer du jour</strong> et des <strong>duels</strong>, ainsi que
+      les duels que vous avez créés ;</li>
+  <li>vos appartenances aux <strong>cercles</strong>, et les cercles dont
+      vous étiez le seul membre ;</li>
+  <li>votre <strong>série</strong>, vos défis récompensés, vos primes de la
+      mer du jour, vos jours de venue et tous les compteurs de votre
+      partie ;</li>
   <li>les éventuelles <strong>sessions de plongée</strong> en cours ;</li>
-  <li>votre <strong>solde de perles</strong> et les opérations en attente ;</li>
+  <li>votre <strong>solde de perles</strong> et ses opérations ;</li>
   <li>le <strong>code de changement de téléphone</strong>, s'il en existait un ;</li>
-  <li>les <strong>messages</strong> que vous nous auriez envoyés.</li>
+  <li>les <strong>messages</strong> que vous nous auriez envoyés, nos
+      réponses, et l'e-mail d'alerte resté dans notre boîte de réception.</li>
 </ul>
-<p>Une seule chose subsiste, et elle ne vous désigne plus : le <strong>reçu</strong>
-d'un éventuel achat, dont le lien avec vous est effacé au même moment. Le reçu
-seul, sans propriétaire, est ce qui empêche qu'un achat déjà encaissé soit
-représenté pour être crédité une seconde fois ; il constitue aussi la preuve
-comptable de la transaction, que nous sommes tenus de conserver. En dehors de
-lui, aucune donnée vous concernant n'est gardée, et nous n'en conservons aucune
-copie à d'autres fins.</p>
+<p>Deux choses subsistent, et ne vous désignent plus :</p>
+<ul>
+  <li>le <strong>reçu</strong> d'un éventuel achat, dont le lien avec vous est
+      effacé au même moment. Le reçu seul, sans propriétaire, est ce qui
+      empêche qu'un achat déjà encaissé soit représenté pour être crédité une
+      seconde fois ; il constitue aussi la preuve comptable de la transaction,
+      que nous sommes tenus de conserver ;</li>
+  <li>un <strong>cercle</strong> que vous aviez créé et où d'autres joueurs
+      sont encore : il leur appartient aussi. Il reste, sans votre nom.</li>
+</ul>
+<p>En dehors d'eux, aucune donnée vous concernant n'est gardée sur notre
+serveur, et nous n'en conservons aucune copie à d'autres fins.</p>
+
+<h3>Les événements de mesure (Android)</h3>
+<p>Les événements envoyés à Google Analytics ne portent ni votre pseudo ni
+votre identifiant de joueur : nous ne pouvons donc pas retrouver les vôtres
+à partir de votre demande. Deux gestes sont entre vos mains. Refuser dans
+<em>Réglages → Publicité : tes choix</em> fait partir les événements suivants
+sans identifiant. Désinstaller le jeu, ou effacer ses données depuis les
+réglages d'Android, rompt le lien avec l'identifiant que Google avait
+attribué à votre installation ; les événements déjà rattachés à cet
+identifiant s'effacent de Google Analytics dans le délai indiqué plus
+haut.</p>
 
 <h3>Durée de conservation résiduelle</h3>
 <p>Notre hébergeur (Cloudflare D1, Europe de l'Ouest) réalise des sauvegardes
 techniques automatiques permettant de restaurer la base en cas d'incident.
 Ces sauvegardes sont conservées <strong>30 jours au maximum</strong>, puis
-détruites : passé ce délai, il ne subsiste plus aucune trace de vos données.
-Ces sauvegardes ne sont jamais consultées ni exploitées en dehors d'une
-restauration après incident technique.</p>
+détruites : passé ce délai, il ne subsiste plus aucune trace de vos données
+sur notre serveur. Ces sauvegardes ne sont jamais consultées ni exploitées en
+dehors d'une restauration après incident technique.</p>
 
 <h3>Données restant sur votre téléphone</h3>
-<p>Vos records et vos poissons débloqués sont enregistrés localement sur votre
-appareil. Ils sont supprimés lorsque vous désinstallez l'application, ou que
-vous effacez ses données depuis les réglages de votre téléphone. Votre solde de
-perles, lui, est tenu
+<p>Vos réglages, vos poissons débloqués et la copie de votre progression sont
+enregistrés localement sur votre appareil. Ils sont supprimés lorsque vous
+désinstallez l'application, ou que vous effacez ses données depuis les
+réglages de votre téléphone. Votre solde de perles, lui, est tenu
 par notre serveur (voir « Vos perles et vos achats ») : la copie qu'en garde
 votre téléphone disparaît avec le reste, mais c'est la demande de suppression
 ci-dessus qui efface le solde lui-même.</p>
 </section>
 
 <h2>Modération</h2>
-<p>Les pseudos sont filtrés automatiquement afin d'écarter les termes
-injurieux ou haineux. Un pseudo inapproprié peut être signalé depuis
-<em>Réglages → Nous écrire</em> ou par e-mail, et sera supprimé.</p>
-
-<h2>Publicité récompensée</h2>
-<p>Une seule forme de publicité existe dans le jeu, et uniquement dans les
-<strong>applications Android et iPhone</strong> : une vidéo dite
-« récompensée », proposée sur l'écran de mort quand vous n'avez plus de perles,
-au plus une fois par plongée. Elle ne se lance que si vous touchez le bouton —
-jamais imposée, jamais entre deux écrans, ni bannière ni interstitiel. La
-version navigateur du jeu n'affiche <strong>aucune</strong> publicité.</p>
-<p>Ces vidéos sont servies par <strong>Google AdMob</strong>. Avant la toute
-première, un formulaire de consentement s'affiche, conforme à la
-réglementation européenne : vous pouvez <em>consentir</em>, <em>régler
-finement</em> (« Gérer les options »), ou <em>refuser</em>. Si vous refusez,
-le bouton vidéo n'apparaît tout simplement pas, et le jeu reste entièrement
-jouable — le choix ne coûte rien d'autre que la seconde chance qu'offrait la
-vidéo.</p>
-<p>Sur <strong>iPhone</strong>, une <em>seconde</em> demande suit la première,
-et elle vient d'Apple et non de nous : l'alerte « Autoriser
-« Fable of the Abyss » à suivre votre activité ». C'est celle qui décide si
-l'identifiant publicitaire de votre appareil peut être lu. La refuser ne retire
-rien au jeu ni à la vidéo — les annonces sont alors simplement moins ciblées.
-Ce réglage se reprend à tout moment dans
-<em>Réglages d'iOS → Confidentialité et sécurité → Suivi</em>.</p>
-<p>Pour afficher une annonce et se prémunir de la fraude, Google traite des
-données <em>directement depuis votre appareil</em>, dans la mesure permise par
-votre choix : l'identifiant publicitaire, l'adresse IP, des informations sur
-l'appareil et l'interaction avec l'annonce. Rien de tout cela ne transite par
-notre serveur ni ne nous est communiqué — nous apprenons seulement, de votre
-appareil lui-même, que la vidéo a été regardée jusqu'au bout, pour vous rendre
-la plongée. Le détail de ce que fait Google figure dans
-<a href="https://policies.google.com/privacy">ses règles de confidentialité</a>
-et dans la liste des partenaires affichée par le formulaire.</p>
-<p><strong>Changer d'avis</strong> se fait à tout moment, dans le jeu :
-<em>Réglages → Confidentialité des annonces</em> rouvre le formulaire. Votre
-choix est enregistré sur votre appareil, pas chez nous.</p>
+<p>Les pseudos et les noms de cercle sont filtrés automatiquement afin
+d'écarter les termes injurieux ou haineux. Un nom inapproprié peut être
+signalé depuis <em>Réglages → Nous écrire</em> ou par e-mail, et sera
+supprimé.</p>
 
 <h2>Enfants</h2>
 <p>L'application s'adresse aux joueurs de <strong>13 ans et plus</strong> —
 notamment parce qu'elle propose des achats et de la publicité. Le Panthéon
 étant public, nous invitons les plus jeunes à ne jamais utiliser leur nom réel
-comme pseudo, et à ne pas écrire d'information personnelle dans le formulaire
-de contact.</p>
+comme pseudo ou comme nom de cercle, et à ne pas écrire d'information
+personnelle dans le formulaire de contact.</p>
 
 <h2>Modifications de cette politique</h2>
 <p>La date de dernière mise à jour figure en tête de page. Tout changement
 touchant ce qui est collecté, pourquoi, ou pendant combien de temps, sera
 annoncé dans les <em>notes de version</em> de la mise à jour concernée : vous
 n'aurez pas à relire cette page pour savoir que quelque chose a bougé.</p>
+<p>La mise à jour du 10 novembre 2026 décrit ce que la version précédente de
+cette page ne disait pas : la mesure d'audience de l'application Android, en
+place depuis la version 2.11 ; la mer du jour, les cercles, la série et les
+rappels, arrivés avec les versions 2.14 ; les duels et la « Première mer » de
+la version 2.15 ; l'e-mail d'alerte acheminé par Resend ; et la durée réelle
+de conservation des opérations de perles, 92 jours et non sept.</p>
 
 <h2>Contact</h2>
 <p>Pour toute question concernant cette politique, ou pour exercer vos droits :
 <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.
-Écrivez-nous depuis votre propre boîte mail — nous ne demandons pas votre
-adresse dans le jeu, et c'est ainsi que nous pouvons vous répondre.</p>
+Écrivez-nous depuis votre propre boîte mail si vous attendez une réponse
+ailleurs que dans le jeu — nous ne demandons pas votre adresse dans le jeu.</p>
 </body>
 </html>

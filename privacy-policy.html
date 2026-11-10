@@ -31,6 +31,7 @@
   p { margin: 0.8rem 0; }
   ul, ol { margin: 0.8rem 0; padding-left: 1.4rem; }
   li { margin: 0.35rem 0; }
+  a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
   .date { opacity: 0.7; font-size: 0.9rem; }
   .lang { font-size: 0.9rem; }
   /* The purposes table must stay readable on a phone: it scrolls inside its
@@ -55,35 +56,44 @@
 </head>
 <body>
 <h1>Privacy Policy<br>“Fable of the Abyss”</h1>
-<p class="date">Last updated: 7 August 2026</p>
+<p class="date">Last updated: 10 November 2026 (game version 2.15)</p>
 <p class="lang"><a href="politique-confidentialite.html">Version française</a></p>
 
+<!-- Any change here must be mirrored in politique-confidentialite.html.
+     Every statement on this page was re-read against the code on
+     10 November 2026: server/schema.sql and server/src (what the database
+     retains and for how long), godot/scripts/track.gd and docs/ANALYTIQUE.md
+     (the measurement), godot/scripts/notif.gd (the reminders). A duration or a
+     list changed in the code is changed here in the same commit. -->
+
 <h2>In short</h2>
-<p><strong>Playing requires a connection, and a name.</strong> It is our
-server that vouches for every dive: without it neither your pearls nor your
-record could be guaranteed, and the game would rather not let you play for
-nothing. What is sent is limited to the following:</p>
+<p><strong>Playing requires a connection.</strong> It is our server that
+vouches for every dive: without it neither your pearls nor your record could be
+guaranteed, and the game would rather not let you play for nothing. What is
+sent to it is limited to the following:</p>
 <ul>
-  <li>the <strong>Pantheon</strong>, the online ranking — the name you choose
-      when you first launch the game, and the depth of your dives;</li>
+  <li>the <strong>Pantheon</strong>, the online ranking — a name, drawn at
+      random at first launch, which you replace whenever you like, and the
+      depth of your dives;</li>
   <li>the <strong>progress of a dive in play</strong>: when it starts, then
       roughly every ten seconds, the game tells the server how deep you are.
       This is what allows a record to be validated without taking the device's
       word for it, and it is also what pauses the run when the server stops
       answering. These readings are deleted along with the session;</li>
-  <li><strong>“Contact us”</strong>, the form in the settings screen — nothing
-      is sent until you write to us;</li>
-  <li>your <strong>pearl balance</strong>, held by the server since version 2.5 —
-      this is what gives your purchases back to you after a reinstall, and what
-      prevents anyone from granting themselves what is being sold;</li>
+  <li><strong>today’s sea</strong>, <strong>friend circles</strong> and
+      <strong>duels</strong>: your depths are ranked there, and seen by those
+      who play them with you;</li>
+  <li>what the server <strong>retains of your game</strong>: pearl balance,
+      day streak, challenges already rewarded, days on which you played;</li>
+  <li><strong>“Contact us”</strong>, the contact form in the settings — nothing
+      is sent until you write;</li>
   <li>your pearl <strong>purchases</strong>, whose receipt must be checked with
-      Google before pearls are credited.</li>
+      Google or Apple before they are credited.</li>
 </ul>
-<p>One thing does <em>not</em> go through our server: the <strong>rewarded
-video</strong> the Android and iPhone applications may offer you when you die.
-It is
-served by Google, with your consent, and the “Rewarded advertising” section
-below is devoted to it.</p>
+<p>Two things do <em>not</em> go through our server and go to Google: the
+<strong>rewarded video</strong> in the Android and iPhone applications, and the
+<strong>audience measurement</strong> in the Android application. Each has its
+own section below, with what you can refuse.</p>
 
 <h2>Who is responsible for your data</h2>
 <p>The application is published by <strong>KFR Studio</strong> (Theo Kiefer),
@@ -92,74 +102,138 @@ exercise your rights:
 <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.</p>
 
 <h2>Data stored on your device</h2>
-<p>Your settings, your progress (tiers, missions, fish unlocked) and your
-records are stored on your device, and disappear if you uninstall the
-application. Most of it never leaves your phone — with two exceptions,
-described on this page: your <strong>deepest dive</strong>, which appears in
-the Pantheon, and your <strong>pearl balance</strong>, held by the server.</p>
-<p>Your <strong>pearl balance</strong> was part of that list until version 2.5;
-it is now held by our server (see below). Your device only keeps a display copy,
-so the screen tells the truth without waiting for the network — the server's
-balance is the one that counts.</p>
-<p>In a browser, they use the site's <em>local storage</em>
-(<code>localStorage</code>). The application <strong>sets no cookies</strong>
-and uses no tracker: this storage only exists to hand your game back to you
-next time you play, and nothing in it is read by any third party.</p>
+<p>Your settings, your unlocked fish, the verses of the fable you have already
+read and a copy of your progress are stored on your device, and disappear if
+you uninstall the application. The settings never leave it. The rest is also
+held by our server, and each section of this page says what.</p>
+<p>Your <strong>pearl balance</strong>, in particular, has been held by our
+server since version 2.5. Your device only keeps a display copy, so the screen
+tells the truth without waiting for the network — the server's balance is the
+one that counts.</p>
+<p>In a browser, this data uses the site's <em>local storage</em>
+(<code>localStorage</code>). The browser version <strong>sets no
+cookies</strong> and includes neither advertising nor audience measurement:
+this storage only exists to hand your game back to you at the next launch.</p>
 
-<!-- Any change here must be mirrored in politique-confidentialite.html. -->
 <h2>The Pantheon (the online ranking)</h2>
-<p>Your name is chosen when you <strong>first launch the game</strong>: it is
-part of entering it. Every player appears in the ranking — the same mechanism
-is what lets the server vouch for dives, keep pearls safe, and give your game
-back if you change phone. The following is sent to our server:</p>
+<p>At <strong>first launch</strong>, the game enters you under a name drawn at
+random (“DIVER4821”) so that you can dive straight away; the end-of-dive screen
+and the Pantheon then offer to replace it with your own. Every player appears
+in the ranking — the same mechanism is what lets the server vouch for dives,
+keep pearls safe, and give your game back if you change phone. The following is
+sent to our server:</p>
 <ul>
-  <li>the <strong>name</strong> you entered;</li>
+  <li>the <strong>name</strong>;</li>
   <li>your <strong>deepest dive</strong> and the tier you reached;</li>
   <li>the <strong>fish</strong> you set that record with, shown as a small
       icon next to your name;</li>
   <li>a <strong>random identifier</strong> generated when you first take part,
       and the <strong>date</strong> you did so;</li>
   <li>during a dive, depth <strong>checkpoints</strong>, which let us verify
-      that a record was actually played.</li>
+      that a record was actually played;</li>
+  <li>with a record, its <strong>proof</strong>: the duration timed by the
+      server, the number of checkpoints, the shortest and the longest gap
+      between two of them, the starting depth and the record it replaces.</li>
 </ul>
+<p>Since version 2.15, the ALL TIME and THIS WEEK rankings count the
+<strong>metres descended in a single dive</strong>: for each of them the server
+keeps your best descent, the depth reached, the starting depth and the fish.
+The ranking as it stood when 2.15 arrived is frozen under the name
+<strong>“First Sea”</strong>: for each player who appeared in it, their depth,
+the date of that record and their fish.</p>
 <p>This identifier is <em>not</em> a hardware identifier: it comes neither
 from your phone nor from any account, and cannot be used to track you across
 other applications. It exists solely so that you occupy a single line in the
 ranking, and so that you can be removed from it.</p>
-<p>Your name and score are public by nature, since they appear in the ranking.
-Exchanges with the server are encrypted (HTTPS).</p>
+<p>Your name and score are public by nature, since they appear in the ranking —
+including in other players' dives, where the record of a neighbour in the
+ranking serves as a marker to beat. Exchanges with the server are encrypted
+(HTTPS).</p>
+
+<h2>Today’s sea, friend circles and duels</h2>
+<p>These three modes are rankings smaller than the Pantheon. You only enter
+them if you play them.</p>
+<ul>
+  <li><strong>Today’s sea</strong> — for each day you play it, your
+      deepest dive and the number of your attempts. The top three of a day
+      receive pearls: the server keeps a record of that prize (day, rank,
+      amount).</li>
+  <li><strong>Friend circles</strong> — a circle has a name, written by its
+      creator and filtered like a player name, and a six-character code. The
+      server records who is a member of it and since when. The members of a
+      circle see the names and depths of the other members.</li>
+  <li><strong>Duels</strong> — a duel has a six-character code. The server
+      records who created it, and the depth of each of those who played it;
+      anyone holding the code sees that ranking. A duel closes seven days after
+      it was created, and its lines are then deleted.</li>
+</ul>
+<p>The <strong>SHARE</strong> button opens your phone's share sheet: the text
+(a depth, a circle or duel code, a link to the game's store page) goes to the
+application you choose. We know neither which one, nor whom you send it
+to.</p>
+
+<h2>What the server retains of your game</h2>
+<p>Several things are held by the server rather than by your phone, for the
+same reason that applies to pearls: a gain tied to time can be faked by moving
+the device's clock forward. The following is stored, under your random
+identifier:</p>
+<ul>
+  <li>your <strong>day streak</strong>: its length, the last day validated and
+      the number of dives on the current day;</li>
+  <li>the <strong>challenges</strong> whose reward has already been paid to
+      you, and the date of each payment;</li>
+  <li>the date you last collected from the <strong>oyster bed</strong>;</li>
+  <li>the <strong>number of dives</strong> played and the total pearls earned
+      since you arrived;</li>
+  <li>the <strong>days on which you played</strong> (one line per day, without
+      the time) and the date of your last visit;</li>
+  <li>the <strong>platform</strong> (Android, iPhone or browser) and the
+      <strong>game version</strong> you use;</li>
+  <li>three counters against abuse: what your dives have earned in the current
+      hour, the number of “×2 pearls” videos that day, and the date you last
+      created a circle.</li>
+</ul>
+<p>The days you visited, the platform and the version let us know how many
+players come back and which version to notify of an update. It is a measurement
+kept by our server alone: it is passed on to no one.</p>
 
 <h2>“Contact us” (contact form, optional)</h2>
 <p>The <em>Settings</em> screen offers a form to report a problem or to ask us
-to act on your ranking entry. If you use it, we receive:</p>
+to act on your game. If you use it, we receive:</p>
 <ul>
   <li>the <strong>text of your message</strong> and the subject you picked
       (bug, account, other);</li>
   <li>your <strong>random identifier</strong> and the associated
-      <strong>name</strong>, if you have one;</li>
+      <strong>name</strong>;</li>
   <li>a little <strong>technical information</strong> attached automatically,
       so that we can understand the problem without having to ask: the game
-      version, the platform (Android, iPhone or browser), the display language, your
-      deepest dive and your pearl balance.</li>
+      version, the platform, the display language, your deepest dive and your
+      pearl balance.</li>
 </ul>
 <p><strong>Do not write anything in that message you would rather not share
 with us</strong>: its content is free-form, and you are the one writing it. We
 ask for neither your name, nor your e-mail address, nor any other contact
-details. <em>We therefore have no way of replying to you from within the
-game</em>: if you expect an answer, please write to the address at the bottom
-of this page instead.</p>
-<p>Messages are read by the publisher, are never shared with anyone, and are
-deleted once the request has been handled — and in any case if you ask for
-your data to be deleted.</p>
+details. If we reply to you, the reply is shown <em>in the game</em>, at your
+next launch; it is kept on our server with your message.</p>
+<p>When a message arrives, our server notifies us by e-mail. That e-mail
+contains your name, the beginning of your identifier, your text and the
+technical information above. It is carried by <strong>Resend</strong>, an
+e-mail delivery provider established in the United States, to our inbox
+(Gmail).</p>
+<p>Messages are read by the publisher. They are kept, together with our
+replies, to follow up your request: no automatic deletion is scheduled, and
+they are deleted if you ask for your data to be deleted.</p>
 
 <h2>Your pearls and your purchases</h2>
 <p>Since version 2.5, your <strong>pearl balance</strong> is held by our server
 rather than by your device alone. Two reasons: giving your pearls back when you
 change phone or reinstall the game, and preventing anyone from granting
-themselves what is being sold. We therefore store your random identifier, your
-balance, and any <em>operations</em> still waiting to be applied (a purchase made
-offline, for instance) — the latter are deleted automatically after seven
-days.</p>
+themselves for free what is being sold. We therefore store your random
+identifier, your balance, and the <em>operations</em> that moved it outside of
+dives (a spend, a refund). These operations are deleted automatically after
+92 days, with two exceptions, kept as long as your game exists because they
+explain a disputed balance: the carry-over of your original balance, and any
+corrections the publisher may have made by hand.</p>
 <p>If you <strong>buy a pearl pack</strong>, the game sends our server the
 <em>receipt</em> issued by your device's store, and our server verifies it
 before crediting anything. What travels is not quite the same from one store to
@@ -170,41 +244,139 @@ the other:</p>
       checks that signature against the application's public key;</li>
   <li>on <strong>iPhone</strong>, the App Store issues a <em>transaction
       identifier</em>, and nothing else. Our server then asks Apple directly
-      whether that purchase really took place — and whether it has been refunded
+      whether that purchase really took place — and has not been refunded
       since.</li>
 </ul>
-<p>In both cases we keep that receipt, the pack concerned and the date: this is
-what prevents the same purchase from being credited twice, and what lets us find
-your payment again if something went wrong. We receive <strong>no name, no
-address and no payment details</strong>: the transaction itself takes place
-entirely at Google (<a href="https://policies.google.com/privacy">its
-policy</a>) or at Apple (<a href="https://www.apple.com/legal/privacy/">its
-own</a>), under theirs.</p>
+<p>In both cases we keep that receipt, the pack concerned, the number of pearls
+credited, the store and the date: this is what prevents the same purchase from
+being credited twice, and what lets us find your payment again if something
+went wrong. We receive <strong>neither your name, nor your address, nor your
+payment method</strong>: the transaction itself takes place entirely at Google
+(<a href="https://policies.google.com/privacy">its policy</a>) or at Apple
+(<a href="https://www.apple.com/legal/privacy/">its own</a>), under
+theirs.</p>
 
-<h2>Changing phone</h2>
-<p><em>Settings → Change phone</em> issues an eight-character code, valid for
-thirty minutes and usable once. During that time we keep the code and the
-identifier of the player it grants access to; afterwards it is worthless.
-Entering that code on a second device attaches it to the same game: we then store
-its random identifier alongside the first.</p>
+<h2>Moving to a new phone</h2>
+<p><em>Settings → Move to a new phone</em> issues an eight-character code,
+valid for thirty minutes and usable once. During that time we keep the code,
+the identifier of the player it grants access to and the list of that player's
+fish, to give them back on the new device; afterwards the code is worthless.
+Entering it on a second device attaches that device to the same game: we then
+store its random identifier alongside the first.</p>
+
+<h2>Reminders (optional)</h2>
+<p>After your third dive, the Android and iPhone applications ask you once
+whether they may send you reminders (“Today’s sea has changed”, “Your
+streak is waiting”). These notifications are scheduled <em>by your phone
+itself</em>: nothing is sent to our server or to a notification service, and we
+receive no identifier of your device for this. At most one goes out per day,
+for at most three days after you last opened the game. You can turn them off at
+any time in <em>Settings → Reminders</em>.</p>
+
+<h2>Rewarded advertising</h2>
+<p>A single form of advertising exists in the game, and only in the
+<strong>Android and iPhone applications</strong>: the so-called “rewarded”
+video. It is offered in two places on the end-of-dive screen: to
+<strong>resume the dive</strong> (once per dive, never in today’s sea
+or in a duel), and to <strong>double the pearls</strong> the dive earned (ten
+times a day at most). It only plays if you tap the button — never forced, never
+between screens, no banner, no interstitial. The browser version of the game
+shows <strong>no</strong> advertising at all.</p>
+<p>These videos are served by <strong>Google AdMob</strong>. Where European
+regulations apply, a consent form appears before the very first one, after one
+of your first dives: you can <em>consent</em>, <em>fine-tune</em> (“Manage
+options”), or <em>refuse</em>. If you refuse, the video button simply never
+appears, and the game remains fully playable — the choice costs nothing but
+what the video would have offered.</p>
+<p>On <strong>iPhone</strong>, a <em>second</em> prompt follows the first, and it
+comes from Apple rather than from us: the “Allow “Fable of the Abyss” to track
+your activity” alert. That one decides whether your device's advertising
+identifier may be read. Declining takes nothing away from the game or the video —
+the ads are simply less targeted. You can revisit this at any time in
+<em>iOS Settings → Privacy &amp; Security → Tracking</em>.</p>
+<p>To display an ad and guard against fraud, Google processes data
+<em>directly from your device</em>, to the extent your choice allows: the
+advertising identifier, the IP address, information about the device, and how
+you interact with the ad. None of it passes through our server or is shared
+with us. All we learn, from your own device, is that the video was watched to
+the end, so we can give the dive back or double your pearls; the server counts
+the day's doublings. What Google does is detailed in
+<a href="https://policies.google.com/privacy">its privacy policy</a> and in
+the list of partners shown by the form.</p>
+<p><strong>Changing your mind</strong> can be done at any time, inside the
+game: <em>Settings → Ads: your choices</em> reopens the form. Your choice is
+stored on your device, not with us.</p>
+
+<h2 id="measurement">Audience measurement (Android application)</h2>
+<p>The Android application includes <strong>Google Analytics for
+Firebase</strong>. It lets us know whether the game works: where dives end,
+which screens are opened, whether one version retains players better than the
+previous one. The iPhone application and the browser version do not include
+it.</p>
+<p>What is sent to Google, from your device:</p>
+<ul>
+  <li><strong>game events</strong>: start and end of a dive (depth, duration,
+      cause of death, fish played), tiers crossed, bubbles earned, challenges
+      completed, encounters, verses read;</li>
+  <li><strong>screen events</strong>: shop or ranking opened, fish chosen,
+      share started, duel created or joined, reminders accepted or refused,
+      rating window requested;</li>
+  <li>the <strong>pearls</strong> earned and spent, the
+      <strong>videos</strong> offered, watched or declined (with the revenue
+      Google attributes to us for each), and the <strong>purchases</strong>
+      started, completed or abandoned (the pack and its displayed price);</li>
+  <li><strong>characteristics of your game</strong>, sorted into bands:
+      number of dives, deepest dive, number of fish, most-played fish, week of
+      installation, purchase already made or not;</li>
+  <li>what Google's tool records on its own: the device model, the Android
+      version, the language, the game version, and the <strong>country and
+      city</strong> it infers from your IP address.</li>
+</ul>
+<p>None of these events carries your name, your player identifier, the code of
+a circle or a duel, or the text of a message.</p>
+<p><strong>What your answer to the form changes.</strong> The consent form of
+the previous section also applies to the measurement:</p>
+<ul>
+  <li><strong>until you have answered, and if you refuse</strong>, the events
+      are sent all the same, but <em>without an identifier</em>: Google can
+      neither tie them to your device, nor link them to one another from one
+      day to the next;</li>
+  <li><strong>if you accept</strong>, Google assigns your installation an
+      identifier of its own — it changes if you reinstall the game — and may
+      read the device's advertising identifier if you have also accepted
+      advertising;</li>
+  <li>where European regulations do not apply, Google does not show this form
+      and the measurement runs with an identifier.</li>
+</ul>
+<p>You can go back on this choice in <em>Settings → Ads: your choices</em>.</p>
+<p><strong>Where this data goes, and for how long.</strong> Google keeps it on
+our behalf, and may process it in the United States, under the data protection
+framework agreed between the European Union and the United States (<em>Data
+Privacy Framework</em>). In Google Analytics, events tied to an identifier are
+deleted after fourteen months at most. We receive a daily copy of them in
+Google BigQuery, hosted in the European Union: it contains no advertising
+identifier. No automatic deletion is scheduled there — we keep it for as long
+as the game is published, to compare its versions with one another.</p>
 
 <h2>What we do not collect</h2>
-<p>Beyond what is described above, no data is sent to our server: no e-mail
-address, no contacts, no location, no hardware identifier. Your device's
-<strong>advertising identifier</strong> never reaches us either: only Google
-uses it, on Android as on iPhone and with your consent, for the rewarded video
-described below. The game contains no tracker and no analytics tool.</p>
+<p>Beyond what is described on this page, no data is sent to our server: no
+e-mail address, no contacts, no location, no hardware identifier. Our database
+records no IP address; our host sees it pass by, as any web server does, and
+keeps a technical log of requests for a few days, which we only consult in the
+event of a failure. Your device's <strong>advertising identifier</strong> never
+reaches us: only Google uses it, with your consent, for the rewarded video and
+the measurement described above. The window that invites you to rate the game
+is the store's own: we do not know whether you rated it.</p>
 
 <h2>Why, on what legal basis, and for how long</h2>
 <table>
   <tr><th>Processing</th><th>Why</th><th>Legal basis</th><th>Retention</th></tr>
   <tr>
-    <td>Name, depth, tier, fish</td>
+    <td>Name, depth, tier, fish, proof of the record</td>
     <td>Displaying the public ranking, and vouching for your dives</td>
     <td><strong>Performance of the contract</strong>: the game is online by
         construction — the server is what guarantees dives, pearls and
-        records, and the name, chosen at first launch, is your line in the
-        ranking</td>
+        records, and the name is your line in the ranking</td>
     <td>For as long as you appear in the ranking, until you ask for
         deletion</td>
   </tr>
@@ -231,15 +403,39 @@ described below. The game contains no tracker and no analytics tool.</p>
         last three unused sessions</td>
   </tr>
   <tr>
-    <td>Pearl balance and pending operations</td>
+    <td>Today’s sea, weekly ranking, circles, duels</td>
+    <td>Keeping the rankings of the modes you choose to play</td>
+    <td><strong>Performance of the contract</strong></td>
+    <td>Until you ask for deletion; a duel, seven days; a circle, as long as
+        it has a member left</td>
+  </tr>
+  <tr>
+    <td>Day streak, rewarded challenges, oyster bed, dive and pearl
+        counters</td>
+    <td>Keeping your progress safe from the phone's clock, and giving it back
+        to you from one device to another</td>
+    <td><strong>Performance of the contract</strong></td>
+    <td>As long as your game exists</td>
+  </tr>
+  <tr>
+    <td>Days visited, last visit, platform, game version</td>
+    <td>Knowing how many players come back, and which version to notify of an
+        update</td>
+    <td>The publisher's <strong>legitimate interest</strong>: a measurement
+        kept by our server alone, with no third party</td>
+    <td>As long as your game exists</td>
+  </tr>
+  <tr>
+    <td>Pearl balance and operations</td>
     <td>Giving your pearls back from one device to another, and protecting what
         is sold</td>
     <td><strong>Performance of the contract</strong>: it is what you buy</td>
-    <td>As long as your game exists; pending operations, seven days</td>
+    <td>The balance, as long as your game exists; the operations, 92 days
+        (see “Your pearls and your purchases” for the two exceptions)</td>
   </tr>
   <tr>
     <td>Purchase receipt (Google Play: token, signed description — App Store:
-        transaction identifier; then pack and date)</td>
+        transaction identifier; then pack, pearls and date)</td>
     <td>Crediting the pearls paid for, and crediting them only once</td>
     <td><strong>Performance of the contract</strong>, and <strong>legal
         obligation</strong> as proof of the transaction</td>
@@ -248,24 +444,46 @@ described below. The game contains no tracker and no analytics tool.</p>
   </tr>
   <tr>
     <td>Rewarded advertising (Android and iPhone)</td>
-    <td>Giving a dive back in exchange for a video, if you choose to</td>
+    <td>Giving a dive back or doubling your pearls in exchange for a video, if
+        you choose to</td>
     <td>Your <strong>consent</strong>, collected through the form required by
         European regulations — and withdrawable at any time in the
         settings</td>
-    <td>We keep nothing: this data is processed by Google, from your device
-        (see “Rewarded advertising”)</td>
+    <td>We keep only the number of doublings that day: the advertising data is
+        processed by Google, from your device</td>
   </tr>
   <tr>
-    <td>Change-of-phone code</td>
+    <td>Audience measurement <em>with</em> an identifier (Android)</td>
+    <td>Understanding where the game loses its players, and comparing its
+        versions</td>
+    <td>Your <strong>consent</strong>, collected through the same form</td>
+    <td>Fourteen months at most in Google Analytics; our copy, as long as the
+        game is published</td>
+  </tr>
+  <tr>
+    <td>Audience measurement <em>without</em> an identifier (Android)</td>
+    <td>Counting dives and spotting failures without recognising anyone</td>
+    <td>The publisher's <strong>legitimate interest</strong></td>
+    <td>Same — these events are tied to no device</td>
+  </tr>
+  <tr>
+    <td>Reminders (Android and iPhone)</td>
+    <td>Reminding you of today’s sea or of your streak</td>
+    <td>Your <strong>consent</strong>: the notification permission the phone
+        asks for</td>
+    <td>Nothing is kept with us: the phone schedules them on its own</td>
+  </tr>
+  <tr>
+    <td>Change-of-phone code, and the list of your fish</td>
     <td>Giving your game back on another device</td>
     <td>Your <strong>consent</strong>: you ask for the code</td>
     <td>Thirty minutes, or a single use</td>
   </tr>
   <tr>
-    <td>Messages sent from the game</td>
+    <td>Messages sent from the game, our replies, and the alert e-mail</td>
     <td>Handling your report or request</td>
     <td>Your <strong>consent</strong>: you write only if you want to</td>
-    <td>Until the request has been handled</td>
+    <td>Until you ask for deletion</td>
   </tr>
 </table>
 
@@ -276,11 +494,18 @@ service), in its <em>Western Europe</em> region. Cloudflare acts as a
 US company, its technical teams may access it to operate the service; such
 access is covered by the European Commission's standard contractual
 clauses.</p>
-<p>No data held by our server is sold, rented, or passed to any third party
-for advertising or commercial purposes — nor to anyone else, for that matter.
-Rewarded advertising does not contradict that sentence: the data it involves
-never passes through us — Google processes it directly from your device, and
-only if you have consented.</p>
+<p>Other companies receive data, each for a specific use:</p>
+<ul>
+  <li><strong>Google</strong>, for the rewarded video (AdMob, Android and
+      iPhone) and audience measurement (Analytics for Firebase, Android) —
+      directly from your device, within the limits of your choice;</li>
+  <li><strong>Resend</strong>, to carry the e-mail that notifies us of your
+      message, if you write to us;</li>
+  <li><strong>Google Play</strong> or <strong>Apple</strong>, which our server
+      queries to verify a purchase.</li>
+</ul>
+<p>Apart from that, no data held by our server is sold, rented, or passed to
+any third party, for advertising, commercial or other purposes.</p>
 
 <h2>Your rights</h2>
 <p>You have the right to <strong>access</strong>, <strong>rectify</strong>,
@@ -294,11 +519,13 @@ supervisory authority: in France, the <strong>CNIL</strong>
 (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
 
 <h2>Automated decisions</h2>
-<p>Two mechanisms run without human intervention, and it is only fair to say
-so: <strong>names</strong> are filtered automatically to rule out insulting
-terms, and a score judged <strong>physically impossible</strong> is refused by
-the server. Neither has any effect outside the game, and you can dispute
-either by writing to us: a human will look.</p>
+<p>Three mechanisms run without human intervention, and it is only fair to say
+so: <strong>player names</strong> and <strong>circle names</strong> are
+filtered automatically to rule out insulting terms, a <strong>score judged
+physically impossible</strong> is refused by the server, and the
+<strong>pearls earned in one hour</strong> are capped at what a very good
+player can collect. None has any effect outside the game, and you can dispute
+each of them by writing to us: a human will look.</p>
 
 <section id="deletion">
 <h2>Deleting your data</h2>
@@ -311,12 +538,12 @@ published by <strong>KFR Studio</strong>
 <ol>
   <li><strong>From the game</strong> — open <em>Settings</em>, tap
   <strong>“CONTACT US”</strong>, choose the subject
-  <strong>“MY ACCOUNT”</strong> and ask for your data to be deleted. Your
+  <strong>“MY GAME”</strong> and ask for your data to be deleted. Your
   identifier is attached automatically: we can find your entry without you
   having to describe it, and without you having to give us anything else.</li>
   <li><strong>By e-mail</strong> — write to
   <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>,
-  stating your name in the ranking.</li>
+  stating your player name.</li>
 </ol>
 <p>Either way, deletion is carried out within 30 days at most.</p>
 
@@ -325,88 +552,91 @@ published by <strong>KFR Studio</strong>
 server:</p>
 <ul>
   <li>your <strong>name</strong>;</li>
-  <li>your <strong>deepest dive</strong> and the tier you reached;</li>
-  <li>the <strong>random identifier</strong> tied to your installation, and
-      the date you first took part;</li>
+  <li>your <strong>deepest dive</strong>, its proof, the tier you reached, and
+      your place in the “First Sea”;</li>
+  <li>the <strong>random identifier</strong> of each of your installations,
+      and the date you first took part;</li>
+  <li>your lines in the rankings of the <strong>week</strong>, of
+      <strong>today’s sea</strong> and of <strong>duels</strong>, as well
+      as the duels you created;</li>
+  <li>your memberships of <strong>circles</strong>, and the circles of which
+      you were the only member;</li>
+  <li>your <strong>streak</strong>, your rewarded challenges, your sea of the
+      day prizes, the days you visited and all the counters of your
+      game;</li>
   <li>any <strong>dive sessions</strong> still open;</li>
-  <li>your <strong>pearl balance</strong> and any pending operations;</li>
+  <li>your <strong>pearl balance</strong> and its operations;</li>
   <li>the <strong>change-of-phone code</strong>, if one existed;</li>
-  <li>any <strong>messages</strong> you may have sent us.</li>
+  <li>any <strong>messages</strong> you may have sent us, our replies, and
+      the alert e-mail left in our inbox.</li>
 </ul>
-<p>One thing remains, and it no longer identifies you: the <strong>receipt</strong>
-of any purchase, whose link to you is erased at the same moment. The receipt
-alone, with no owner, is what prevents an already-paid purchase from being
-submitted again to be credited a second time; it is also the accounting proof of
-the transaction, which we are required to keep. Apart from it, no data concerning
-you is kept, and we retain no copy for any other purpose.</p>
+<p>Two things remain, and no longer identify you:</p>
+<ul>
+  <li>the <strong>receipt</strong> of any purchase, whose link to you is
+      erased at the same moment. The receipt alone, with no owner, is what
+      prevents an already-paid purchase from being submitted again to be
+      credited a second time; it is also the accounting proof of the
+      transaction, which we are required to keep;</li>
+  <li>a <strong>circle</strong> you had created and in which other players
+      remain: it belongs to them too. It stays, without your name.</li>
+</ul>
+<p>Apart from them, no data concerning you is kept on our server, and we retain
+no copy for any other purpose.</p>
+
+<h3>Measurement events (Android)</h3>
+<p>The events sent to Google Analytics carry neither your name nor your player
+identifier: we therefore cannot find yours from your request. Two actions are
+in your hands. Refusing in <em>Settings → Ads: your choices</em> makes
+subsequent events go out without an identifier. Uninstalling the game, or
+clearing its data from Android's settings, breaks the link with the identifier
+Google had assigned to your installation; the events already tied to that
+identifier are deleted from Google Analytics within the period indicated
+above.</p>
 
 <h3>Residual retention</h3>
 <p>Our host (Cloudflare D1, Western Europe) makes automatic technical backups
 so the database can be restored after an incident. These backups are kept for
 <strong>30 days at most</strong>, then destroyed: after that, no trace of your
-data remains. They are never consulted or used outside of a restoration
-following a technical incident.</p>
+data remains on our server. They are never consulted or used outside of a
+restoration following a technical incident.</p>
 
 <h3>Data remaining on your phone</h3>
-<p>Your records and unlocked fish are stored locally on your device. They are
-deleted when you uninstall the application, or when you clear its data from your
-phone's settings. Your pearl balance, however, is held by our server (see “Your pearls
-and your purchases”): the copy kept on your phone disappears with the rest, but
-it is the deletion request above that erases the balance itself.</p>
+<p>Your settings, your unlocked fish and the copy of your progress are stored
+locally on your device. They are deleted when you uninstall the application, or
+when you clear its data from your phone's settings. Your pearl balance,
+however, is held by our server (see “Your pearls and your purchases”): the copy
+kept on your phone disappears with the rest, but it is the deletion request
+above that erases the balance itself.</p>
 </section>
 
 <h2>Moderation</h2>
-<p>Names are filtered automatically to rule out insulting or hateful terms. An
-inappropriate name can be reported from <em>Settings → Contact us</em> or by
-e-mail, and will be removed.</p>
-
-<h2>Rewarded advertising</h2>
-<p>A single form of advertising exists in the game, and only in the
-<strong>Android and iPhone applications</strong>: a so-called “rewarded” video,
-offered on the death screen when you have run out of pearls, at most once per
-dive. It only plays if you tap the button — never forced, never between screens,
-no banner, no interstitial. The browser version of the game shows
-<strong>no</strong> advertising at all.</p>
-<p>These videos are served by <strong>Google AdMob</strong>. Before the very
-first one, a consent form appears, as required by European regulations: you
-can <em>consent</em>, <em>fine-tune</em> (“Manage options”), or
-<em>refuse</em>. If you refuse, the video button simply never appears, and the
-game remains fully playable — the choice costs nothing but the second chance
-the video would have offered.</p>
-<p>On <strong>iPhone</strong>, a <em>second</em> prompt follows the first, and it
-comes from Apple rather than from us: the “Allow “Fable of the Abyss” to track
-your activity” alert. That one decides whether your device's advertising
-identifier may be read. Declining takes nothing away from the game or the video —
-the ads are simply less targeted. You can revisit this at any time in
-<em>iOS Settings → Privacy &amp; Security → Tracking</em>.</p>
-<p>To display an ad and guard against fraud, Google processes data
-<em>directly from your device</em>, to the extent your choice allows: the
-advertising identifier, the IP address, information about the device, and how
-you interact with the ad. None of it passes through our server or is shared
-with us — all we learn, from your own device, is that the video was watched to
-the end, so we can give the dive back. What Google does is detailed in
-<a href="https://policies.google.com/privacy">its privacy policy</a> and in
-the list of partners shown by the form.</p>
-<p><strong>Changing your mind</strong> can be done at any time, inside the
-game: <em>Settings → Ad privacy settings</em> reopens the form. Your choice is
-stored on your device, not with us.</p>
+<p>Player names and circle names are filtered automatically to rule out
+insulting or hateful terms. An inappropriate name can be reported from
+<em>Settings → Contact us</em> or by e-mail, and will be removed.</p>
 
 <h2>Children</h2>
 <p>The application is intended for players aged <strong>13 and over</strong> —
 not least because it offers purchases and advertising. As the Pantheon is
 public, we encourage younger players never to use their real name as their
-player name, and not to write personal information in the contact form.</p>
+player name or as a circle name, and not to write personal information in the
+contact form.</p>
 
 <h2>Changes to this policy</h2>
 <p>The date of the last update appears at the top of this page. Any change to
 what is collected, why, or for how long, will be announced in the
 <em>release notes</em> of the update concerned: you will not have to re-read
 this page to find out that something moved.</p>
+<p>The update of 10 November 2026 describes what the previous version of this
+page did not say: the audience measurement in the Android application, in place
+since version 2.11; today’s sea, circles, the streak and reminders,
+which arrived with the 2.14 versions; the duels and the “First Sea” of version
+2.15; the alert e-mail carried by Resend; and the actual retention period of
+pearl operations, 92 days and not seven.</p>
 
 <h2>Contact</h2>
 <p>For any question regarding this policy, or to exercise your rights:
 <a href="mailto:tk.contact.pro@gmail.com">tk.contact.pro@gmail.com</a>.
-Please write from your own mailbox — we do not ask for your address inside the
-game, and that is how we can reply to you.</p>
+Write to us from your own mailbox if you expect a reply anywhere other than in
+the game — we do not ask for your address inside the game.</p>
 </body>
 </html>
