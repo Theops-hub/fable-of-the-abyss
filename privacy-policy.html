@@ -56,7 +56,7 @@
 </head>
 <body>
 <h1>Privacy Policy<br>“Fable of the Abyss”</h1>
-<p class="date">Last updated: 10 November 2026 (game version 2.15)</p>
+<p class="date">Last updated: 18 November 2026 (game version 2.17.1)</p>
 <p class="lang"><a href="politique-confidentialite.html">Version française</a></p>
 
 <!-- Any change here must be mirrored in politique-confidentialite.html.
@@ -85,6 +85,8 @@ sent to it is limited to the following:</p>
       who play them with you;</li>
   <li>what the server <strong>retains of your game</strong>: pearl balance,
       day streak, challenges already rewarded, days on which you played;</li>
+  <li><strong>multiplayer games</strong> over the Internet: your name and your
+      dive, seen by the other players in the game, and deleted after it;</li>
   <li><strong>“Contact us”</strong>, the contact form in the settings — nothing
       is sent until you write;</li>
   <li>your pearl <strong>purchases</strong>, whose receipt must be checked with
@@ -171,6 +173,31 @@ them if you play them.</p>
 (a depth, a circle or duel code, a link to the game's store page) goes to the
 application you choose. We know neither which one, nor whom you send it
 to.</p>
+
+<h2>Multiplayer games</h2>
+<p>Since version 2.17.1, the <strong>MULTIPLAYER</strong> button on the home
+screen lets 2 to 4 players dive at the same time, in the same sea. A game has a
+six-character code; only those who have the code can join it.</p>
+<ul>
+  <li><strong>Over the Internet</strong> — your phone connects to a separate
+      server used only for these games (hosted by Cloudflare, with no access to
+      the game's database). For the duration of the game it receives: your
+      name, the fish you chose, “ready” or “not ready”, then your depth and
+      your position across the screen, about five times a second, and your
+      fall. The other players in the game see all of this. Names are filtered
+      as in the Pantheon. <strong>Nothing is kept after the game</strong>: a
+      finished, empty game is deleted after a few minutes, and every game at
+      the latest three hours after it was created. This server keeps no log of
+      connections. To limit abuse, it counts the games created per connection
+      for ten minutes, under a fingerprint of the IP address (never the address
+      itself).</li>
+  <li><strong>No Internet</strong> — the phone of the player who creates the
+      game serves it over the Wi-Fi (or hotspot); the others look for it on
+      that network. Nothing goes through our servers. On iPhone, the system
+      first asks you for access to the local network.</li>
+</ul>
+<p>The dive itself is an ordinary dive: over the Internet, it counts in the
+Pantheon and earns pearls like any other (see above).</p>
 
 <h2>What the server retains of your game</h2>
 <p>Several things are held by the server rather than by your phone, for the
@@ -288,16 +315,19 @@ of your first dives: you can <em>consent</em>, <em>fine-tune</em> (“Manage
 options”), or <em>refuse</em>. If you refuse, the video button simply never
 appears, and the game remains fully playable — the choice costs nothing but
 what the video would have offered.</p>
-<p>On <strong>iPhone</strong>, a <em>second</em> prompt follows the first, and it
-comes from Apple rather than from us: the “Allow “Fable of the Abyss” to track
-your activity” alert. That one decides whether your device's advertising
-identifier may be read. Declining takes nothing away from the game or the video —
-the ads are simply less targeted. You can revisit this at any time in
-<em>iOS Settings → Privacy &amp; Security → Tracking</em>.</p>
+<p>On <strong>iPhone</strong>, since version 2.15, the game does not track you:
+it does not ask for permission to track your activity, so it cannot read your
+device's advertising identifier, and it asks Google for
+<strong>non-personalized</strong> ads only, that is, ads chosen without relying
+on your activity in other apps or websites. Earlier iPhone versions asked this
+question through Apple's “Allow “Fable of the Abyss” to track your activity”
+alert; an answer already given can be changed in
+<em>iOS Settings → Privacy &amp; Security → Tracking</em>, and the update makes
+the question moot.</p>
 <p>To display an ad and guard against fraud, Google processes data
 <em>directly from your device</em>, to the extent your choice allows: the
-advertising identifier, the IP address, information about the device, and how
-you interact with the ad. None of it passes through our server or is shared
+advertising identifier (on Android only), the IP address, information about the
+device, and how you interact with the ad. None of it passes through our server or is shared
 with us. All we learn, from your own device, is that the video was watched to
 the end, so we can give the dive back or double your pearls; the server counts
 the day's doublings. What Google does is detailed in
@@ -364,7 +394,7 @@ e-mail address, no contacts, no location, no hardware identifier. Our database
 records no IP address; our host sees it pass by, as any web server does, and
 keeps a technical log of requests for a few days, which we only consult in the
 event of a failure. Your device's <strong>advertising identifier</strong> never
-reaches us: only Google uses it, with your consent, for the rewarded video and
+reaches us: only Google uses it, with your consent and on Android only, for the rewarded video and
 the measurement described above. The window that invites you to rate the game
 is the store's own: we do not know whether you rated it.</p>
 
@@ -489,7 +519,10 @@ is the store's own: we do not know whether you rated it.</p>
 
 <h2>Where your data is, and who can access it</h2>
 <p>The server and database are hosted by <strong>Cloudflare</strong> (D1
-service), in its <em>Western Europe</em> region. Cloudflare acts as a
+service), in its <em>Western Europe</em> region. The multiplayer game server is
+also at Cloudflare (Durable Objects), with no database: a game lives in a
+Cloudflare data centre close to the player who created it, for the duration of
+the game. Cloudflare acts as a
 <em>processor</em>: it hosts, and does nothing else with your data. As a
 US company, its technical teams may access it to operate the service; such
 access is covered by the European Commission's standard contractual
@@ -632,6 +665,9 @@ since version 2.11; today’s sea, circles, the streak and reminders,
 which arrived with the 2.14 versions; the duels and the “First Sea” of version
 2.15; the alert e-mail carried by Resend; and the actual retention period of
 pearl operations, 92 days and not seven.</p>
+<p>The update of 12 November 2026 changes one thing only: on iPhone, from
+version 2.15, the game no longer asks for permission to track your activity and
+serves non-personalized ads only.</p>
 
 <h2>Contact</h2>
 <p>For any question regarding this policy, or to exercise your rights:

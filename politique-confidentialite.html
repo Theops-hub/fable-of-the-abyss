@@ -52,7 +52,7 @@
 </head>
 <body>
 <h1>Politique de confidentialité<br>« Fable of the Abyss »</h1>
-<p class="date">Dernière mise à jour : 10 novembre 2026 (version 2.15 du jeu)</p>
+<p class="date">Dernière mise à jour : 18 novembre 2026 (version 2.17.1 du jeu)</p>
 <p class="lang"><a href="privacy-policy.html">English version</a></p>
 
 <!-- Toute modification ici doit être reportée dans privacy-policy.html.
@@ -82,6 +82,9 @@ qui lui est envoyé se limite à ce qui suit :</p>
   <li>ce que le serveur <strong>retient de votre partie</strong> : solde de
       perles, série de jours, défis déjà récompensés, jours où vous avez
       joué ;</li>
+  <li>les <strong>parties multijoueur</strong> par Internet : votre pseudo et
+      votre plongée, vus des autres joueurs de la partie, et effacés après
+      elle ;</li>
   <li><strong>« Nous écrire »</strong>, le formulaire de contact des réglages —
       rien n'est envoyé tant que vous n'écrivez pas ;</li>
   <li>vos <strong>achats</strong> de perles, dont le reçu doit être vérifié
@@ -172,6 +175,32 @@ entrez que si vous y jouez.</p>
 téléphone : le texte (une profondeur, un code de cercle ou de duel, un lien
 vers la fiche du jeu) part vers l'application que vous choisissez. Nous ne
 savons ni laquelle, ni à qui vous l'envoyez.</p>
+
+<h2>Les parties multijoueur</h2>
+<p>Depuis la version 2.17.1, le bouton <strong>MULTIJOUEUR</strong> de
+l'accueil permet de plonger à plusieurs (de 2 à 4), en même temps, dans la
+même mer. Une partie a un code à six caractères ; seuls ceux qui ont ce code y
+entrent.</p>
+<ul>
+  <li><strong>Par Internet</strong> — votre téléphone se connecte à un serveur
+      à part, réservé aux parties (hébergé par Cloudflare, sans accès à la
+      base du jeu). Il reçoit, le temps de la partie : votre pseudo, le
+      poisson choisi, « prêt » ou « pas prêt », puis votre profondeur et votre
+      position dans la largeur de l'écran, environ cinq fois par seconde, et
+      votre chute. Les autres joueurs de la partie voient tout cela. Le pseudo
+      y est filtré comme au Panthéon. <strong>Rien n'est conservé après la
+      partie</strong> : une partie terminée et vide est effacée au bout de
+      quelques minutes, et toute partie au plus tard trois heures après sa
+      création. Ce serveur ne garde pas de journal des connexions. Pour limiter
+      les abus, il compte les parties créées par connexion pendant dix minutes,
+      sous une empreinte de l'adresse IP (jamais l'adresse elle-même).</li>
+  <li><strong>Sans Internet</strong> — le téléphone de celui qui crée la partie
+      la sert lui-même sur le Wi-Fi (ou le partage de connexion) ; les autres
+      le cherchent sur ce réseau. Rien ne passe par nos serveurs. Sur iPhone,
+      le système vous demande d'abord l'accès au réseau local.</li>
+</ul>
+<p>La plongée elle-même est une plongée ordinaire : par Internet, elle compte
+au Panthéon et rapporte des perles comme les autres (voir plus haut).</p>
 
 <h2>Ce que le serveur retient de votre partie</h2>
 <p>Plusieurs choses sont tenues par le serveur plutôt que par votre téléphone,
@@ -297,17 +326,19 @@ avant la toute première, après l'une de vos premières plongées : vous pouvez
 <em>refuser</em>. Si vous refusez, le bouton vidéo n'apparaît tout simplement
 pas, et le jeu reste entièrement jouable — le choix ne coûte rien d'autre que
 ce qu'offrait la vidéo.</p>
-<p>Sur <strong>iPhone</strong>, une <em>seconde</em> demande suit la première,
-et elle vient d'Apple et non de nous : l'alerte « Autoriser
-« Fable of the Abyss » à suivre votre activité ». C'est celle qui décide si
-l'identifiant publicitaire de votre appareil peut être lu. La refuser ne retire
-rien au jeu ni à la vidéo — les annonces sont alors simplement moins ciblées.
-Ce réglage se reprend à tout moment dans
-<em>Réglages d'iOS → Confidentialité et sécurité → Suivi</em>.</p>
+<p>Sur <strong>iPhone</strong>, depuis la version 2.15, le jeu ne vous suit
+pas : il ne demande pas l'autorisation de suivre votre activité, ne peut donc
+pas lire l'identifiant publicitaire de votre appareil, et demande à Google des
+annonces <strong>non personnalisées</strong>, c'est-à-dire choisies sans
+s'appuyer sur votre activité dans d'autres applications ou sites. Les versions
+iPhone antérieures posaient cette question par l'alerte d'Apple « Autoriser
+« Fable of the Abyss » à suivre votre activité » ; une réponse déjà donnée se
+reprend dans <em>Réglages d'iOS → Confidentialité et sécurité → Suivi</em>, et
+la mise à jour rend la question sans objet.</p>
 <p>Pour afficher une annonce et se prémunir de la fraude, Google traite des
 données <em>directement depuis votre appareil</em>, dans la mesure permise par
-votre choix : l'identifiant publicitaire, l'adresse IP, des informations sur
-l'appareil et l'interaction avec l'annonce. Rien de tout cela ne transite par
+votre choix : l'identifiant publicitaire (sur Android seulement), l'adresse IP,
+des informations sur l'appareil et l'interaction avec l'annonce. Rien de tout cela ne transite par
 notre serveur ni ne nous est communiqué. Nous apprenons seulement, de votre
 appareil lui-même, que la vidéo a été regardée jusqu'au bout, pour vous rendre
 la plongée ou doubler vos perles ; le serveur compte les doublements du jour.
@@ -377,8 +408,8 @@ identifiant matériel. Notre base n'enregistre aucune adresse IP ; notre
 hébergeur la voit passer, comme tout serveur web, et tient un journal
 technique des requêtes pendant quelques jours, que nous ne consultons qu'en
 cas de panne. L'<strong>identifiant publicitaire</strong> de votre appareil ne
-nous parvient jamais : seul Google l'utilise, avec votre consentement, pour la
-vidéo récompensée et la mesure décrites plus haut. La fenêtre qui vous propose
+nous parvient jamais : seul Google l'utilise, avec votre consentement et sur
+Android seulement, pour la vidéo récompensée et la mesure décrites plus haut. La fenêtre qui vous propose
 de noter le jeu est celle du magasin : nous ne savons pas si vous avez
 noté.</p>
 
@@ -505,7 +536,10 @@ noté.</p>
 
 <h2>Où sont vos données, et qui peut y accéder</h2>
 <p>Le serveur et la base de données sont hébergés par <strong>Cloudflare</strong>
-(service D1), dans sa région <em>Europe de l'Ouest</em>. Cloudflare agit
+(service D1), dans sa région <em>Europe de l'Ouest</em>. Le serveur des
+parties multijoueur est lui aussi chez Cloudflare (Durable Objects), sans base
+de données : une partie vit dans un centre de Cloudflare proche de celui qui
+l'a créée, le temps de la partie. Cloudflare agit
 comme <em>sous-traitant</em> : il héberge, il ne fait rien d'autre de vos
 données. Étant une société de droit américain, ses équipes techniques peuvent
 y accéder pour l'exploitation du service ; ces accès sont encadrés par les
@@ -656,6 +690,9 @@ place depuis la version 2.11 ; la mer du jour, les cercles, la série et les
 rappels, arrivés avec les versions 2.14 ; les duels et la « Première mer » de
 la version 2.15 ; l'e-mail d'alerte acheminé par Resend ; et la durée réelle
 de conservation des opérations de perles, 92 jours et non sept.</p>
+<p>La mise à jour du 12 novembre 2026 ne change qu'une chose : sur iPhone, à
+partir de la version 2.15, le jeu ne demande plus l'autorisation de suivre
+votre activité et ne sert que des annonces non personnalisées.</p>
 
 <h2>Contact</h2>
 <p>Pour toute question concernant cette politique, ou pour exercer vos droits :
